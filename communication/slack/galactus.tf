@@ -13,5 +13,5 @@
 
 resource "slack_channel" "main" {
   channel_name  = "${var.main_channel_name}"
-  channel_topic = "${var.main_channel_description}"
+  channel_topic = "${var.main_channel_topic}"
 }

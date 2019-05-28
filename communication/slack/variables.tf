@@ -21,7 +21,7 @@ variable "main_channel_name" {
   description = "Name of the main channel"
 }
 
-variable "main_channel_description" {
+variable "main_channel_topic" {
   type        = "string"
-  description = "Description of the main channel"
+  description = "Topic of the main channel"
 }
