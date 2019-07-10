@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# data "uptimerobot_account" "account" {}
+data "uptimerobot_account" "account" {}
 
-# data "uptimerobot_alert_contact" "default_alert_contact" {
-#  friendly_name = "${data.uptimerobot_account.account.email}"
-#}
+data "uptimerobot_alert_contact" "default_alert_contact" {
+ friendly_name = "${data.uptimerobot_account.account.email}"
+}
 
 resource "uptimerobot_monitor" "box_external_access" {
   url           = "${var.box_url}"
@@ -33,9 +33,9 @@ resource "uptimerobot_monitor" "nicolas_website" {
   type          = "http"
   friendly_name = "[Galactus] Nicolas website"
 
-  # alert_contact {
-  #   id = "${data.uptimerobot_alert_contact.default_alert_contact.id}"
-  # }
+  alert_contact {
+    id = "${data.uptimerobot_alert_contact.default_alert_contact.id}"
+  }
 }
 
 resource "uptimerobot_monitor" "cloud_website" {
