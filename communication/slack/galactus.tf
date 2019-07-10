@@ -11,7 +11,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+data "slack_user" "owner" {
+  name  = "nlamirault"
+  email = "nicolas.lamirault@gmail.com"
+}
+
 resource "slack_channel" "main" {
   channel_name  = "${var.main_channel_name}"
   channel_topic = "${var.main_channel_topic}"
+
+  # members = [
+  #   "${data.slack_user.owner.id}",
+  # ]
+}
+
+resource "slack_channel" "logzio" {
+  channel_name  = "${var.logzio_channel_name}"
+  channel_topic = "${var.logzio_channel_topic}"
+
+  # members = [
+  #   "${data.slack_user.owner.id}",
+  # ]
+}
+
+resource "slack_channel" "alerting" {
+  channel_name  = "${var.alerting_channel_name}"
+  channel_topic = "${var.alerting_channel_topic}"
+
+  # members = [
+  #   "${data.slack_user.owner.id}",
+  # ]
+}
+
+resource "slack_channel" "notification" {
+  channel_name  = "${var.notification_channel_name}"
+  channel_topic = "${var.notification_channel_topic}"
+
+  # members = [
+  #   "${data.slack_user.owner.id}",
+  # ]
 }

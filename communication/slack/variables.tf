@@ -25,3 +25,33 @@ variable "main_channel_topic" {
   type        = "string"
   description = "Topic of the main channel"
 }
+
+variable "logzio_channel_name" {
+  type        = "string"
+  description = "Name of the Logz.io channel"
+}
+
+variable "logzio_channel_topic" {
+  type        = "string"
+  description = "Topic of the Logz.io channel"
+}
+
+variable "alerting_channel_name" {
+  type        = "string"
+  description = "Name of the alerting channel"
+}
+
+variable "alerting_channel_topic" {
+  type        = "string"
+  description = "Topic of the alerting channel"
+}
+
+variable "notification_channel_name" {
+  type        = "string"
+  description = "Name of the notification channel"
+}
+
+variable "notification_channel_topic" {
+  type        = "string"
+  description = "Topic of the notification channel"
+}
