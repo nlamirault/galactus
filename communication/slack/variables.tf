@@ -55,3 +55,13 @@ variable "notification_channel_topic" {
   type        = "string"
   description = "Topic of the notification channel"
 }
+
+variable "jarvis_channel_name" {
+  type        = "string"
+  description = "Name of the Jarvis channel"
+}
+
+variable "jarvis_channel_topic" {
+  type        = "string"
+  description = "Topic of the Jarvis channel"
+}

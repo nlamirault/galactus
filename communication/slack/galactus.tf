@@ -20,32 +20,41 @@ resource "slack_channel" "main" {
   channel_name  = "${var.main_channel_name}"
   channel_topic = "${var.main_channel_topic}"
 
-  # members = [
-  #   "${data.slack_user.owner.id}",
-  # ]
+  members = [
+    "${data.slack_user.owner.id}",
+  ]
 }
 
 resource "slack_channel" "logzio" {
   channel_name  = "${var.logzio_channel_name}"
   channel_topic = "${var.logzio_channel_topic}"
 
-  # members = [
-  #   "${data.slack_user.owner.id}",
-  # ]
+  members = [
+    "${data.slack_user.owner.id}",
+  ]
 }
 
 resource "slack_channel" "alerting" {
   channel_name  = "${var.alerting_channel_name}"
   channel_topic = "${var.alerting_channel_topic}"
 
-  # members = [
-  #   "${data.slack_user.owner.id}",
-  # ]
+  members = [
+    "${data.slack_user.owner.id}",
+  ]
 }
 
 resource "slack_channel" "notification" {
   channel_name  = "${var.notification_channel_name}"
   channel_topic = "${var.notification_channel_topic}"
+
+  members = [
+    "${data.slack_user.owner.id}",
+  ]
+}
+
+resource "slack_channel" "jarvis" {
+  channel_name  = "${var.jarvis_channel_name}"
+  channel_topic = "${var.jarvis_channel_topic}"
 
   # members = [
   #   "${data.slack_user.owner.id}",
