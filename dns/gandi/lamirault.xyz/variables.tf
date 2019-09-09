@@ -35,6 +35,7 @@ variable "domain_name" {
 variable "home_machines" {
   type        = "list"
   description = "Hosts in local network"
+  default     = []
 }
 
 variable "cloud_record_value" {

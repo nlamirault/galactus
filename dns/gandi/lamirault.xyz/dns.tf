@@ -25,14 +25,14 @@ resource "gandi_domainattachment" "main" {
   zone   = "${data.gandi_zone.main.id}"
 }
 
-resource "gandi_zonerecord" "home_machine" {
-  count  = "${length(local.home_machines)}"
-  zone   = "${data.gandi_zone.main.id}"
-  name   = "${element(split(":", element(local.home_machines, count.index)), 0)}"
-  type   = "A"
-  ttl    = 3600
-  values = ["192.168.0.${element(split(":", element(local.home_machines, count.index)), 1)}"]
-}
+# resource "gandi_zonerecord" "home_machine" {
+#   count  = "${length(local.home_machines)}"
+#   zone   = "${data.gandi_zone.main.id}"
+#   name   = "${element(split(":", element(local.home_machines, count.index)), 0)}"
+#   type   = "A"
+#   ttl    = 3600
+#   values = ["192.168.0.${element(split(":", element(local.home_machines, count.index)), 1)}"]
+# }
 
 resource "gandi_zonerecord" "cloud_record" {
   zone   = "${data.gandi_zone.main.id}"
