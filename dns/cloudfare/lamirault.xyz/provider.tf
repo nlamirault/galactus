@@ -15,9 +15,6 @@
 provider "cloudflare" {
   version = "~> 1.18.0"
 
-  # email     = "${var.cloudflare_email}"
-  # token = "${var.cloudflare_token}"
-
-  email = "nicolas.lamirault@gmail.com"
-  token = "b2b5cf74122b1ea02a7b1dbc6e0faee967910"
+  email = "${var.cloudflare_email}"
+  token = "${var.cloudflare_token}"
 }
