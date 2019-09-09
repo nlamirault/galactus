@@ -50,9 +50,10 @@ Enable the bucket’s versioning:
 * [x] UptimeRobot
 * [x] StatusCake
 
-### DNS
+### DNS
 
 * [x] Gandi
+* [x] Cloudflare
 
 
 ## Changelog
