@@ -53,3 +53,21 @@ resource "statuscake_test" "synology_access" {
   check_rate   = 300
   contact_id   = "${var.statuscake_contact_id}"
 }
+
+resource "statuscake_test" "kubernetes_access_cloud" {
+  website_name = "[Galactus] Kubernetes access Cloud"
+  website_url  = "${var.kubernetes_access_host_cloud}"
+  test_type    = "TCP"
+  port         = "${var.kubernetes_access_port_cloud}"
+  check_rate   = 300
+  contact_id   = "${var.statuscake_contact_id}"
+}
+
+resource "statuscake_test" "synology_access_cloud" {
+  website_name = "[Galactus] Synology access Cloud"
+  website_url  = "${var.synology_access_host_cloud}"
+  test_type    = "TCP"
+  port         = "${var.synology_access_port_cloud}"
+  check_rate   = 300
+  contact_id   = "${var.statuscake_contact_id}"
+}

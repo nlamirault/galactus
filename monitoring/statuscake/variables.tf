@@ -58,3 +58,23 @@ variable "synology_access_port" {
   type        = "string"
   description = "Port of the Synology access"
 }
+
+variable "kubernetes_access_host_cloud" {
+  type        = "string"
+  description = "Hostname of the Kubernetes access Cloud"
+}
+
+variable "kubernetes_access_port_cloud" {
+  type        = "string"
+  description = "Port of the Kubernetes access Cloud"
+}
+
+variable "synology_access_host_cloud" {
+  type        = "string"
+  description = "Hostname of the Synology access Cloud"
+}
+
+variable "synology_access_port_cloud" {
+  type        = "string"
+  description = "Port of the Synology access Cloud"
+}
