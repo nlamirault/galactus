@@ -57,3 +57,11 @@ resource "gandi_zonerecord" "monitoring_record" {
   ttl    = "1800"
   values = ["${var.monitoring_record_value}"]
 }
+
+resource "gandi_zonerecord" "nicolas_record" {
+  zone   = "${data.gandi_zone.main.id}"
+  name   = "nicolas"
+  type   = "CNAME"
+  ttl    = "1800"
+  values = ["${var.nicolas_record_value}"]
+}

@@ -52,3 +52,8 @@ variable "monitoring_record_value" {
   type        = "string"
   description = "Value of the Monitoring website"
 }
+
+variable "nicolas_record_value" {
+  type        = "string"
+  description = "Value of Nicolas website"
+}
