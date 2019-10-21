@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+##########################################################################
+# HTTP
+
 resource "statuscake_test" "box_external_access" {
   website_name = "[Galactus] Box"
   website_url  = "${var.box_url}"
@@ -35,6 +38,9 @@ resource "statuscake_test" "cloud_website" {
   check_rate   = 300
   contact_id   = "${var.statuscake_contact_id}"
 }
+
+##########################################################################
+# TCP
 
 resource "statuscake_test" "kubernetes_access" {
   website_name = "[Galactus] Kubernetes access"
