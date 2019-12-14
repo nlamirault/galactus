@@ -69,3 +69,8 @@ plan: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Plan Terraform (SERV
 apply: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Apply Terraform (SERVICE=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
 	cd $(SERVICE) && terraform apply -var-file ./galactus.tfvars
+
+.PHONY: destroy
+destroy: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Destroy Terraform (SERVICE=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
+	cd $(SERVICE) && terraform destroy -var-file ./galactus.tfvars
