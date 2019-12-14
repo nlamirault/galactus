@@ -28,47 +28,47 @@ resource "github_repository" "github-nlamirault-bento" {
 module "github-nlamirault-bento-labels" {
   # source          = "git::https://github.com/nlamirault/galactus.git//github/modules/labels"
   source          = "../../../../terraform/github/labels"
-  repository_name = "${github_repository.github-nlamirault-bento.name}"
+  repository_name = github_repository.github-nlamirault-bento.name
 }
 
 resource "github_issue_label" "OS_ARCHLINUX" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/archlinux"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_DEBIAN" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/debian"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_VOIDLINUX" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/voidlinux"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_CENTOS" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/centos"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_FREEBSD" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/freebsd"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_NETBSD" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/netbsd"
   color      = "fbca04"
 }
 
 resource "github_issue_label" "OS_OPENBSD" {
-  repository = "${github_repository.github-nlamirault-bento.name}"
+  repository = github_repository.github-nlamirault-bento.name
   name       = "os/openbsd"
   color      = "fbca04"
 }

@@ -14,6 +14,6 @@
 
 provider "github" {
   version      = "~> 2.2.0"
-  token        = "${var.github_token}"
-  organization = "${var.github_organization}"
+  token        = var.github_token
+  organization = var.github_organization
 }
