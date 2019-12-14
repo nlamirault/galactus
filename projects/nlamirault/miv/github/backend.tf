@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
     bucket = "galactus-nlamirault"
-    prefix = "projects/nlamirault/nvim/github.tfstate"
+    prefix = "projects/nlamirault/miv/github.tfstate"
   }
 }
