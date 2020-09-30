@@ -12,14 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-terraform {
-  required_version = ">= 0.11.0"
-#  backend "remote" {
-#    hostname = "app.terraform.io"
-#    organization = "galactus"
-#
-#    workspaces {
-#      name = "uptime-robot"
-#    }
-#  }
+provider "statuscake" {
 }

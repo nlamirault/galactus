@@ -12,69 +12,62 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "statuscake_username" {
-  description = "The account username"
-}
-
-variable "statuscake_apikey" {
-  description = "The API key to used"
-}
-
-variable "statuscake_contact_id" {
+variable statuscake_contact_group {
   description = "ID of the contact group"
+  type        = set(string)
 }
 
-variable "box_url" {
-  type        = "string"
+variable box_url {
+  type        = string
   description = "URL of the box"
 }
 
-variable "nicolas_website_url" {
-  type        = "string"
+variable nicolas_website_url {
+  type        = string
   description = "URL of Nicolas website"
 }
 
-variable "cloud_website_url" {
-  type        = "string"
+variable cloud_website_url {
+  type        = string
   description = "URL of Cloud website"
 }
 
-variable "kubernetes_access_host" {
-  type        = "string"
+variable kubernetes_access_host {
+  type        = string
   description = "Hostname of the Kubernetes access"
 }
 
-variable "kubernetes_access_port" {
-  type        = "string"
+variable kubernetes_access_port {
+  type        = string
   description = "Port of the Kubernetes access"
 }
 
-variable "synology_access_host" {
-  type        = "string"
+variable synology_access_host {
+  type        = string
   description = "Hostname of the Synology access"
 }
 
-variable "synology_access_port" {
-  type        = "string"
+variable synology_access_port {
+  type        = string
   description = "Port of the Synology access"
 }
 
-variable "kubernetes_access_host_cloud" {
-  type        = "string"
+variable kubernetes_access_host_cloud {
+  type        = string
   description = "Hostname of the Kubernetes access Cloud"
 }
 
-variable "kubernetes_access_port_cloud" {
-  type        = "string"
+variable kubernetes_access_port_cloud {
+  type        = string
   description = "Port of the Kubernetes access Cloud"
 }
 
-variable "synology_access_host_cloud" {
-  type        = "string"
+variable synology_access_host_cloud {
+  type        = string
   description = "Hostname of the Synology access Cloud"
 }
 
-variable "synology_access_port_cloud" {
-  type        = "string"
+variable synology_access_port_cloud {
+  type        = string
   description = "Port of the Synology access Cloud"
 }

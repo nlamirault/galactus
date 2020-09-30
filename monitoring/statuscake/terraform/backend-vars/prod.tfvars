@@ -12,7 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-provider "statuscake" {
-  username = "${var.statuscake_username}"
-  apikey   = "${var.statuscake_apikey}"
-}
+bucket = "galactus-nlamirault"
+prefix = "monitoring/statuscake/lamirault.tfstate"
