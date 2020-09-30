@@ -12,7 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-provider "uptimerobot" {
-  # version = "~> 0.1.1"
-  api_key = "${var.uptimerobot_apikey}"
-}
+bucket = "galactus-nlamirault"
+prefix = "monitoring/uptimerobot/lamirault.tfstate"

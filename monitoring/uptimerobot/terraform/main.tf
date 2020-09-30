@@ -13,13 +13,13 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 0.11.0"
-#  backend "remote" {
-#    hostname = "app.terraform.io"
-#    organization = "galactus"
-#
-#    workspaces {
-#      name = "uptime-robot"
-#    }
-#  }
+  required_version = "= 0.12.20"
+  #  backend "remote" {
+  #    hostname = "app.terraform.io"
+  #    organization = "galactus"
+  #
+  #    workspaces {
+  #      name = "uptime-robot"
+  #    }
+  #  }
 }

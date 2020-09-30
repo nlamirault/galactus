@@ -19,7 +19,7 @@ data "uptimerobot_account" "account" {}
 # }
 
 resource "uptimerobot_monitor" "box_external_access" {
-  url           = "${var.box_url}"
+  url           = var.box_url
   type          = "http"
   friendly_name = "[Galactus] Box"
 
@@ -29,7 +29,7 @@ resource "uptimerobot_monitor" "box_external_access" {
 }
 
 resource "uptimerobot_monitor" "nicolas_website" {
-  url           = "${var.nicolas_website_url}"
+  url           = var.nicolas_website_url
   type          = "http"
   friendly_name = "[Galactus] Nicolas website"
 
@@ -39,7 +39,7 @@ resource "uptimerobot_monitor" "nicolas_website" {
 }
 
 resource "uptimerobot_monitor" "cloud_website" {
-  url           = "${var.cloud_website_url}"
+  url           = var.cloud_website_url
   type          = "http"
   friendly_name = "[Galactus] Cloud website"
 
@@ -49,10 +49,10 @@ resource "uptimerobot_monitor" "cloud_website" {
 }
 
 resource "uptimerobot_monitor" "kubernetes_access_cloud" {
-  url           = "${var.kubernetes_access_host_cloud}"
+  url           = var.kubernetes_access_host_cloud
   type          = "port"
   sub_type      = "custom"
-  port          = "${var.kubernetes_access_port_cloud}"
+  port          = var.kubernetes_access_port_cloud
   friendly_name = "[Galactus] Kubernetes Master Cloud"
 
   # alert_contact {
@@ -61,10 +61,10 @@ resource "uptimerobot_monitor" "kubernetes_access_cloud" {
 }
 
 resource "uptimerobot_monitor" "kubernetes_access" {
-  url           = "${var.kubernetes_access_host_hopto}"
+  url           = var.kubernetes_access_host_hopto
   type          = "port"
   sub_type      = "custom"
-  port          = "${var.kubernetes_access_port_hopto}"
+  port          = var.kubernetes_access_port_hopto
   friendly_name = "[Galactus] Kubernetes Master"
 
   # alert_contact {
@@ -73,10 +73,10 @@ resource "uptimerobot_monitor" "kubernetes_access" {
 }
 
 resource "uptimerobot_monitor" "synology_access_cloud" {
-  url           = "${var.synology_access_host_cloud}"
+  url           = var.synology_access_host_cloud
   type          = "port"
   sub_type      = "custom"
-  port          = "${var.synology_access_port_cloud}"
+  port          = var.synology_access_port_cloud
   friendly_name = "[Galactus] Synology SSH Cloud"
 
   # alert_contact {
@@ -85,10 +85,10 @@ resource "uptimerobot_monitor" "synology_access_cloud" {
 }
 
 resource "uptimerobot_monitor" "synology_access" {
-  url           = "${var.synology_access_host_hopto}"
+  url           = var.synology_access_host_hopto
   type          = "port"
   sub_type      = "custom"
-  port          = "${var.synology_access_port_hopto}"
+  port          = var.synology_access_port_hopto
   friendly_name = "[Galactus] Synology SSH"
 
   # alert_contact {

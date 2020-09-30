@@ -12,62 +12,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "uptimerobot_apikey" {
-  type        = "string"
-  description = "The API key to used"
-}
-
-variable "box_url" {
-  type        = "string"
+variable box_url {
+  type        = string
   description = "URL of the box"
 }
 
-variable "nicolas_website_url" {
-  type        = "string"
+variable nicolas_website_url {
+  type        = string
   description = "URL of Nicolas website"
 }
 
-variable "cloud_website_url" {
-  type        = "string"
+variable cloud_website_url {
+  type        = string
   description = "URL of Cloud website"
 }
 
-variable "kubernetes_access_host_hopto" {
-  type        = "string"
+variable kubernetes_access_host_hopto {
+  type        = string
   description = "Hostname of the Kubernetes access"
 }
 
-variable "kubernetes_access_port_hopto" {
-  type        = "string"
+variable kubernetes_access_port_hopto {
+  type        = string
   description = "Port of the Kubernetes access"
 }
 
-variable "synology_access_host_hopto" {
-  type        = "string"
+variable synology_access_host_hopto {
+  type        = string
   description = "Hostname of the Synology access"
 }
 
-variable "synology_access_port_hopto" {
-  type        = "string"
+variable synology_access_port_hopto {
+  type        = string
   description = "Port of the Synology access"
 }
 
-variable "kubernetes_access_host_cloud" {
-  type        = "string"
+variable kubernetes_access_host_cloud {
+  type        = string
   description = "Hostname of the Kubernetes access"
 }
 
-variable "kubernetes_access_port_cloud" {
-  type        = "string"
+variable kubernetes_access_port_cloud {
+  type        = string
   description = "Port of the Kubernetes access"
 }
 
-variable "synology_access_host_cloud" {
-  type        = "string"
+variable synology_access_host_cloud {
+  type        = string
   description = "Hostname of the Synology access"
 }
 
-variable "synology_access_port_cloud" {
-  type        = "string"
+variable synology_access_port_cloud {
+  type        = string
   description = "Port of the Synology access"
 }
