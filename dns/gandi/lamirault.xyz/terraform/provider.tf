@@ -13,8 +13,4 @@
 # limitations under the License.
 
 provider "gandi" {
-  # version    = "~> 1.0.0"
-  key = "${var.gandi_apikey}"
-
-  # sharing_id = "${var.gandi_sharing_id}"
 }

@@ -12,48 +12,58 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "gandi_apikey" {
-  type        = "string"
-  description = "The API key to used"
-}
-
-variable "gandi_sharing_id" {
-  type        = "string"
-  description = "The sharing ID to used"
-}
-
-variable "zone_name" {
-  type        = "string"
+variable zone_name {
+  type        = string
   description = "Name of the zone"
 }
 
-variable "domain_name" {
-  type        = "string"
+variable domain_name {
+  type        = string
   description = "Name of the domain"
 }
 
-variable "home_machines" {
-  type        = "list"
+variable home_machines {
+  type        = list
   description = "Hosts in local network"
   default     = []
 }
 
-variable "cloud_record_value" {
-  type        = "string"
+variable cloud_record_value {
+  type        = string
   description = "Value of the Cloud website"
 }
 
-variable "status_record_value" {
-  type        = "string"
+variable cloud_record_name {
+  type        = string
+  description = "Name of the Cloud website"
+}
+
+variable status_record_value {
+  type        = string
   description = "Value of the Status website"
 }
 
-variable "monitoring_record_value" {
-  type        = "string"
+variable status_record_name {
+  type        = string
+  description = "Name of the Status website"
+}
+
+variable monitoring_record_value {
+  type        = string
   description = "Value of the Monitoring website"
 }
 
-variable "nicolas_record_value" {
-  type        = "string"
+variable monitoring_record_name {
+  type        = string
+  description = "Name of the Monitoring website"
+}
+
+variable nicolas_record_value {
+  type        = string
   description = "Value of Nicolas website"
+}
+
+variable nicolas_record_name {
+  type        = string
+  description = "Name of Nicolas website"
 }

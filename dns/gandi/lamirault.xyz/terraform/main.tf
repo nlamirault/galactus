@@ -13,20 +13,14 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 0.11.0"
+  required_version = "= 0.13.2"
 
-  # backend "s3" {
-  #   bucket                      = "galactus"
-  #   key                         = "foo"
-  #   region                      = ""
-  #   endpoint                    = ""
-  #   skip_region_validation      = true
-  #   skip_credentials_validation = true
-  # }
-
-  # backend "consul" {
-  #   address = ""
-  #   scheme  = "https"
-  #   path    = "galactus/foo"
-  # }
+  required_providers {
+    gandi = {
+      # source   = "github/go-gandi/gandi"
+      # versions = "= 2.0.0"
+      source  = "manvalls/gandi"
+      version = "2.0.0-rc2-fork"
+    }
+  }
 }

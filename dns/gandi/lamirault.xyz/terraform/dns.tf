@@ -12,56 +12,52 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-locals {
-  home_machines = "${var.home_machines}"
-}
-
 data "gandi_zone" "main" {
-  name = "${var.zone_name}"
+  name = var.zone_name
 }
 
 resource "gandi_domainattachment" "main" {
-  domain = "${var.domain_name}"
-  zone   = "${data.gandi_zone.main.id}"
+  domain = var.domain_name
+  zone   = data.gandi_zone.main.id
 }
 
-# resource "gandi_zonerecord" "home_machine" {
-#   count  = "${length(local.home_machines)}"
-#   zone   = "${data.gandi_zone.main.id}"
-#   name   = "${element(split(":", element(local.home_machines, count.index)), 0)}"
-#   type   = "A"
-#   ttl    = 3600
-#   values = ["192.168.0.${element(split(":", element(local.home_machines, count.index)), 1)}"]
-# }
-
 resource "gandi_zonerecord" "cloud_record" {
-  zone   = "${data.gandi_zone.main.id}"
-  name   = "cloud"
+  zone   = data.gandi_zone.main.id
+  name   = var.cloud_record_name
   type   = "A"
   ttl    = "1800"
-  values = ["${var.cloud_record_value}"]
+  values = [var.cloud_record_value]
 }
 
 resource "gandi_zonerecord" "status_record" {
-  zone   = "${data.gandi_zone.main.id}"
-  name   = "status"
+  zone   = data.gandi_zone.main.id
+  name   = var.status_record_name
   type   = "CNAME"
   ttl    = "1800"
-  values = ["${var.status_record_value}"]
+  values = [var.status_record_value]
 }
 
 resource "gandi_zonerecord" "monitoring_record" {
-  zone   = "${data.gandi_zone.main.id}"
-  name   = "monitoring"
+  zone   = data.gandi_zone.main.id
+  name   = var.monitoring_record_name
   type   = "CNAME"
   ttl    = "1800"
-  values = ["${var.monitoring_record_value}"]
+  values = [var.monitoring_record_value]
 }
 
 resource "gandi_zonerecord" "nicolas_record" {
-  zone   = "${data.gandi_zone.main.id}"
-  name   = "nicolas"
+  zone   = data.gandi_zone.main.id
+  name   = var.nicolas_record_name
   type   = "CNAME"
   ttl    = "1800"
-  values = ["${var.nicolas_record_value}"]
+  values = [var.nicolas_record_value]
+}
+
+resource "gandi_zonerecord" "home" {
+  count  = length(var.home_machines)
+  zone   = data.gandi_zone.main.id
+  name   = element(split(":", element(var.home_machines, count.index)), 0)
+  type   = "A"
+  ttl    = 3600
+  values = ["192.168.0.${element(split(":", element(var.home_machines, count.index)), 1)}"]
 }
