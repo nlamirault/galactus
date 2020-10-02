@@ -13,6 +13,4 @@
 # limitations under the License.
 
 provider "papertrail" {
-  # version = "~> 0.1.1"
-  token = var.papertrail_token
 }

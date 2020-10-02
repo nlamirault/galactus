@@ -13,5 +13,12 @@
 # limitations under the License.
 
 terraform {
-  required_version = "= 0.12.20"
+  required_version = "= 0.13.2"
+
+  required_providers {
+    papertrail = {
+      source  = "nlamirault/papertrail"
+      version = "0.1.7"
+    }
+  }
 }
