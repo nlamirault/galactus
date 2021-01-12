@@ -13,6 +13,6 @@
 # limitations under the License.
 
 provider "gitlab" {
-  version = "~> 2.1.0"
+  version = "~> 2.11.0"
   token   = "${var.gitlab_token}"
 }
