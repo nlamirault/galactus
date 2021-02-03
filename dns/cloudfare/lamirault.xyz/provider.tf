@@ -13,7 +13,7 @@
 # limitations under the License.
 
 provider "cloudflare" {
-  version = "~> 1.18.0"
+  version = "~> 2.18.0"
 
   email = "${var.cloudflare_email}"
   token = "${var.cloudflare_token}"
