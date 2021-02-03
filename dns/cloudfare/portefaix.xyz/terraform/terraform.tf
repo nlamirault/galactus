@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# Copyright (C) 2018-2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,12 +13,12 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 0.13.5"
-
+  required_version = ">= 0.14.0"
+  
   required_providers {
     cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "2.12.0"
+      source = "cloudflare/cloudflare"
+      version = "2.18.0"
     }
   }
 }
