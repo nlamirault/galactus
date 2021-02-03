@@ -31,6 +31,7 @@ resource "github_repository" "project" {
     "thanos",
     "loki",
     "tempo",
+    "aws",
     "galactus"
   ]
 }

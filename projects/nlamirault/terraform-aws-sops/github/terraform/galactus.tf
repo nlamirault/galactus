@@ -15,8 +15,8 @@
 # -------------------------------------------------------------------
 
 resource "github_repository" "project" {
-  name        = "terraform-aws-eks"
-  description = "Terraform module for Elastic Kubernetes Service"
+  name        = "terraform-aws-sops"
+  description = "Terraform module for Sops"
 
   has_issues         = true
   has_wiki           = true
@@ -27,8 +27,8 @@ resource "github_repository" "project" {
   topics = [
     "terraform",
     "terraform-module",
-    "eks",
     "aws",
+    "sops",
     "galactus"
   ]
 }
