@@ -11,27 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-data "google_compute_network" "network" {
-  name = var.network_name
-}
-
-data "google_compute_subnetwork" "subnet" {
-  name   = var.network_name
-  region = var.region
-}
-
 module "gke" {
   source  = "nlamirault/gke/google"
-  version = "0.3.0"
+  version = "0.6.0"
 
   depends_on = [module.vpc]
 
   project  = var.project
   location = var.location
 
-  network        = data.google_compute_network.network.name   #var.network
-  subnet_network = data.google_compute_subnetwork.subnet.name #var.subnet_network
+  network        = data.google_compute_network.network.name   
+  subnet_network = data.google_compute_subnetwork.subnet.name
 
   name                       = var.name
   release_channel            = var.release_channel
@@ -63,6 +53,7 @@ module "gke" {
   istio                      = var.istio
   cloudrun                   = var.cloudrun
   csi_driver                 = var.csi_driver
+  config_connector           = var.config_connector
 
   datapath_provider = var.datapath_provider
 

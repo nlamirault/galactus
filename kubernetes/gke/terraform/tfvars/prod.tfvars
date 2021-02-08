@@ -38,6 +38,31 @@ secondary_ranges = {
     ]
 }
 
+#############################################################################
+# External IPs
+
+external_ip_names = [
+    "jarvis-cloud-nat-0",
+    "jarvis-cloud-nat-1"
+]
+
+cloud_nat_labels = {
+    "service" = "cloud-nat",
+    "made-by" = "terraform"
+}
+
+#############################################################################
+# Cloud NAT
+
+nat_network            = "jarvis"
+nat_name               = "jarvis-nat-gateway"
+nat_router_name        = "jarvis-router"
+nat_external_ip_0_name = "jarvis-cloud-nat-0"
+nat_external_ip_1_name = "jarvis-cloud-nat-1"
+
+min_ports_per_vm = 4000
+
+
 ###########################################################################
 # Kubernetes cluster
 
@@ -48,7 +73,7 @@ name = "jarvis-cluster-gke"
 # network        = "jarvis"
 # subnet_network = "jarvis"
 
-release_channel = "RAPID"
+release_channel = "REGULAR"
 
 network_config = {
   enable_natgw   = true
@@ -91,6 +116,7 @@ google_cloud_load_balancer = true
 istio                      = false
 cloudrun                   = false
 csi_driver                 = true
+config_connector           = true
 datapath_provider          = "ADVANCED_DATAPATH"
 
 maintenance_start_time = "01:00"

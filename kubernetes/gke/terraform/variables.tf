@@ -42,6 +42,56 @@ variable secondary_ranges {
   description = "Secondary ranges"
 }
 
+
+#############################################################################
+# External IPs
+
+variable external_ip_names {
+  type        = set(string)
+  description = "Names of the External IP for the Cloud NAT"
+}
+
+variable "cloud_nat_labels" {
+  description = "Map of labels to apply to the IP address"
+  type        = map(string)
+  default = {
+    "made-by" = "terraform"
+  }
+}
+
+#############################################################################
+# Cloud NAT
+
+variable "nat_name" {
+  type        = string
+  description = "Name of the Cloud NAT"
+}
+
+variable "nat_router_name" {
+  type        = string
+  description = "The name of the router in which this NAT will be configured"
+}
+
+variable "nat_network" {
+  type        = string
+  description = "Name of the network"
+}
+
+variable "nat_external_ip_0_name" {
+  type        = string
+  description = "Name of the first External IP to use"
+}
+
+variable "nat_external_ip_1_name" {
+  type        = string
+  description = "Name of the second External IP to use"
+}
+
+variable "min_ports_per_vm" {
+  type        = number
+  description = "Minimum number of ports allocated to a VM from this NAT config"
+}
+
 ############################################################################
 # Kubernetes
 
@@ -185,6 +235,11 @@ variable cloudrun {
 variable csi_driver {
   description = "Enable Google Compute Engine Persistent Disk Container Storage Interface (CSI) Driver"
   type        = bool
+}
+
+variable "config_connector" {
+  description = "Enable the ConfigConnector addon"
+  type = bool
 }
 
 variable maintenance_start_time {
