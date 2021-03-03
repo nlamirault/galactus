@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# Copyright (C) 2018-2019 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,9 +15,10 @@
 # -------------------------------------------------------------------
 
 resource "github_repository" "project" {
-  name        = "portefaix-doc"
-  description = "Documentation for portefaix"
+  name        = "portefaix-hub"
+  description = "Portefaix Hub"
 
+  homepage_url       = "https://charts.portefaix.xyz" 
   has_issues         = true
   has_wiki           = true
   has_downloads      = true
@@ -25,23 +26,26 @@ resource "github_repository" "project" {
   allow_merge_commit = true
 
   pages {
-    cname = "www.portefaix.xyz"
+    cname = "charts.portefaix.xyz"
     source {
       branch = "gh-pages" 
       path   = "/"
     }
   }
 
-  topics = [
-    "portefaix",
-    "documentation",
-    "galactus"
-  ]
+  topics = ["portefaix", "kubernetes", "helm", "galactus"]
 }
 
 module "project_labels" {
   source  = "nlamirault/project/github//modules/labels"
   version = "0.1.0"
-  
+
   repository_name = github_repository.project.name
+}
+
+resource "github_issue_label" "area_helm" {
+  repository  = github_repository.project.name
+  name        = "area/helm"
+  description = "Helm"
+  color       = "cc317c"
 }
