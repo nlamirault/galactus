@@ -45,3 +45,17 @@ module "project_labels" {
   
   repository_name = github_repository.project.name
 }
+
+resource "github_issue_label" "area_renovate" {
+  repository  = github_repository.project.name
+  name        = "area/renovate"
+  description = "Renovate"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "dependency_nodejs" {
+  repository  = github_repository.project.name
+  name        = "dependency/nodejs"
+  description = "Dependency NodeJS"
+  color       = "6fcb70"
+}
