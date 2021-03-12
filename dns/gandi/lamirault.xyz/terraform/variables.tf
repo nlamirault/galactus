@@ -12,58 +12,58 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable zone_name {
+variable "zone_name" {
   type        = string
   description = "Name of the zone"
 }
 
-variable domain_name {
+variable "domain_name" {
   type        = string
   description = "Name of the domain"
 }
 
-variable home_machines {
-  type        = list
+variable "home_machines" {
+  type        = list(any)
   description = "Hosts in local network"
   default     = []
 }
 
-variable cloud_record_value {
+variable "cloud_record_value" {
   type        = string
   description = "Value of the Cloud website"
 }
 
-variable cloud_record_name {
+variable "cloud_record_name" {
   type        = string
   description = "Name of the Cloud website"
 }
 
-variable status_record_value {
+variable "status_record_value" {
   type        = string
   description = "Value of the Status website"
 }
 
-variable status_record_name {
+variable "status_record_name" {
   type        = string
   description = "Name of the Status website"
 }
 
-variable monitoring_record_value {
+variable "monitoring_record_value" {
   type        = string
   description = "Value of the Monitoring website"
 }
 
-variable monitoring_record_name {
+variable "monitoring_record_name" {
   type        = string
   description = "Name of the Monitoring website"
 }
 
-variable nicolas_record_value {
+variable "nicolas_record_value" {
   type        = string
   description = "Value of Nicolas website"
 }
 
-variable nicolas_record_name {
+variable "nicolas_record_name" {
   type        = string
   description = "Name of Nicolas website"
 }

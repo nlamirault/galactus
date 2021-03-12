@@ -40,4 +40,3 @@ nicolas_record_value = "nicolaslamirault.netlify.com."
 #   "osmc:10",
 #   "nas:13",
 # ]
-
