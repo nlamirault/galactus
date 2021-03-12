@@ -26,7 +26,6 @@ export GOOGLE_APPLICATION_CREDENTIALS=${GALACTUS_CONFIG_HOME}/service-account.js
 
 if [ ! -f ${GOOGLE_APPLICATION_CREDENTIALS} ]; then
     echo -e "${KO_COLOR}Service Account file not found: ${NO_COLOR}${GOOGLE_APPLICATION_CREDENTIALS}"
-    exit 1
+else
+    echo -e "${OK_COLOR}Done${NO_COLOR}"
 fi
-
-echo -e "${OK_COLOR}Done${NO_COLOR}"
