@@ -13,14 +13,20 @@
 # limitations under the License.
 
 terraform {
-  required_version = "= 0.13.2"
+  required_version = "> 0.14.0"
 
   required_providers {
     gandi = {
-      # source   = "github/go-gandi/gandi"
-      # versions = "= 2.0.0"
-      source  = "manvalls/gandi"
-      version = "2.0.0-rc2-fork"
+      # source  = "github/go-gandi/gandi"
+      # version = "= 2.0.0"
+      # source  = "manvalls/gandi"
+      # version = "2.0.0-rc2-fork"
+      source  = "psychopenguin/gandi"
+      version = "2.0.0-rc3"
+    }
+    gandi-2 = {
+      source = "manvalls/gandi"
+      version = "2.0.0-rc2-fork-3"
     }
   }
 }
