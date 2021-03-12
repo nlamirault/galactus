@@ -1,5 +1,4 @@
 # Copyright (C) 2018-2019 Nicolas Lamirault <nicolas.lamirault@gmail.com>
-
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,6 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-terraform {
-  required_version = ">= 0.12.0"
+# Actarus repository
+# -------------------------------------------------------------------
+
+resource "github_repository" "project" {
+  name        = "actarus"
+  description = "A lightweight web browser based on the webkit web browser engine"
+
+  has_issues         = true
+  has_wiki           = true
+  has_downloads      = true
+  allow_merge_commit = true
+
+  topics = ["web-browser", "galactus"]
+}
+
+module "project_labels" {
+  source  = "nlamirault/project/github//modules/labels"
+  version = "0.1.0"
+
+  repository_name = github_repository.project.name
 }
