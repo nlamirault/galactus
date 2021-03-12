@@ -11,9 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "papertrail_user" "owner" {
-  email = var.owner_email
-}
+# data "papertrail_user" "owner" {
+#   email = var.owner_email
+# }
 
 resource "papertrail_system" "jarvis_kubernetes" {
   name = "Jarvis Kubernetes"

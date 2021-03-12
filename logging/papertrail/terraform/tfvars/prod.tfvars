@@ -11,4 +11,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-owner_email = "nicolas.lamirault@gmail.com"
+# owner_email = "nicolas.lamirault@gmail.com"

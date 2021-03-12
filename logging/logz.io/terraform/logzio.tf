@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "logzio_endpoint" "logzio-slack" {
+resource "logzio_endpoint" "logzio_slack" {
   title         = "Slack Galactus"
   description   = "Slack endpoint"
   endpoint_type = "slack"
