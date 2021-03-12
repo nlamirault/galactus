@@ -20,7 +20,7 @@ module "gke" {
   project  = var.project
   location = var.location
 
-  network        = data.google_compute_network.network.name   
+  network        = data.google_compute_network.network.name
   subnet_network = data.google_compute_subnetwork.subnet.name
 
   name                       = var.name

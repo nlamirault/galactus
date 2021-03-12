@@ -31,5 +31,5 @@ resource "github_repository" "github-nlamirault-divona" {
 module "github-nlamirault-divona-labels" {
   # source          = "git::https://github.com/nlamirault/galactus.git//github/modules/labels"
   source          = "../../../../terraform/github/labels"
-  repository_name = "${github_repository.github-nlamirault-divona.name}"
+  repository_name = github_repository.github-nlamirault-divona.name
 }

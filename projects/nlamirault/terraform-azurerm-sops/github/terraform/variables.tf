@@ -12,5 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "github_owner" {}
-variable "github_token" {}
+variable "github_owner" {
+  description = "This is the target GitHub individual account / organization to manage"
+  type        = string
+}
+
+variable "github_token" {
+  description = "A GitHub OAuth / Personal Access Token"
+  type        = string
+}

@@ -26,29 +26,29 @@ network_name = "jarvis"
 subnet_cidr = "10.0.0.0/20"
 
 secondary_ranges = {
-    "jarvis" = [
-      {
-        range_name    = "jarvis-gke-services"
-        ip_cidr_range = "10.0.16.0/20"
-      },
-      {
-        range_name    = "jarvis-gke-pods"
-        ip_cidr_range = "10.0.32.0/20"
-      }
-    ]
+  "jarvis" = [
+    {
+      range_name    = "jarvis-gke-services"
+      ip_cidr_range = "10.0.16.0/20"
+    },
+    {
+      range_name    = "jarvis-gke-pods"
+      ip_cidr_range = "10.0.32.0/20"
+    }
+  ]
 }
 
 #############################################################################
 # External IPs
 
 external_ip_names = [
-    "jarvis-cloud-nat-0",
-    "jarvis-cloud-nat-1"
+  "jarvis-cloud-nat-0",
+  "jarvis-cloud-nat-1"
 ]
 
 cloud_nat_labels = {
-    "service" = "cloud-nat",
-    "made-by" = "terraform"
+  "service" = "cloud-nat",
+  "made-by" = "terraform"
 }
 
 #############################################################################
@@ -80,8 +80,8 @@ network_config = {
   enable_ssh     = false
   private_master = false
   private_nodes  = true
-  pods_cidr     = "jarvis-gke-pods"
-  services_cidr = "jarvis-gke-services"
+  pods_cidr      = "jarvis-gke-pods"
+  services_cidr  = "jarvis-gke-services"
 }
 
 master_ipv4_cidr_block = "10.0.63.0/28"
@@ -92,17 +92,17 @@ master_ipv4_cidr_block = "10.0.63.0/28"
 
 master_authorized_networks = [
   # Example :
-    {
-      cidr_block   = "0.0.0.0/0"
-      display_name = "internet"
-    }
+  {
+    cidr_block   = "0.0.0.0/0"
+    display_name = "internet"
+  }
 ]
 
 labels = {
   project = "jarvis"
-  env      = "prod"
-  service  = "kubernetes"
-  made-by  = "terraform"
+  env     = "prod"
+  service = "kubernetes"
+  made-by = "terraform"
 }
 
 network_policy             = false
@@ -127,11 +127,11 @@ default_max_pods_per_node = 110
 # Kubernetes node pool
 
 node_labels = {
-  node     = "core",
-  project  = "jarvis"
-  env      = "prod"
-  service  = "kubernetes"
-  made-by  = "terraform"
+  node    = "core",
+  project = "jarvis"
+  env     = "prod"
+  service = "kubernetes"
+  made-by = "terraform"
 }
 
 node_tags = ["kubernetes", "nodes"]
@@ -143,7 +143,7 @@ auto_repair  = true
 # Addons node pools
 
 node_pools = [
-    {
+  {
     name                    = "core"
     node_count              = 1
     min_node_count          = 0

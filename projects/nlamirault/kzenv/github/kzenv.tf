@@ -31,5 +31,5 @@ resource "github_repository" "github-nlamirault-kzenv" {
 module "github-nlamirault-kzenv-labels" {
   # source          = "git::https://github.com/nlamirault/galactus.git//github/modules/labels"
   source          = "../../../../terraform/github/labels"
-  repository_name = "${github_repository.github-nlamirault-kzenv.name}"
+  repository_name = github_repository.github-nlamirault-kzenv.name
 }

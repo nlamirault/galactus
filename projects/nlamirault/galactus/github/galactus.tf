@@ -29,5 +29,5 @@ resource "github_repository" "github-nlamirault-galactus" {
 module "github-nlamirault-galactus-labels" {
   # source          = "git::https://github.com/nlamirault/galactus.git/terraform/github/labels"
   source          = "../../../../terraform/github/labels"
-  repository_name = "${github_repository.github-nlamirault-galactus.name}"
+  repository_name = github_repository.github-nlamirault-galactus.name
 }
