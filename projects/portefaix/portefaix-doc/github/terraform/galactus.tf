@@ -27,7 +27,7 @@ resource "github_repository" "project" {
   pages {
     cname = "www.portefaix.xyz"
     source {
-      branch = "gh-pages" 
+      branch = "gh-pages"
       path   = "/"
     }
   }
@@ -42,7 +42,7 @@ resource "github_repository" "project" {
 module "project_labels" {
   source  = "nlamirault/project/github//modules/labels"
   version = "0.1.0"
-  
+
   repository_name = github_repository.project.name
 }
 

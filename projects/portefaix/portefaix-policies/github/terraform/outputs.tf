@@ -12,11 +12,11 @@
 # limitations under the License.
 
 output "repo_id" {
-    description = "Github ID for the repository"
-    value = github_repository.project.repo_id
+  description = "Github ID for the repository"
+  value       = github_repository.project.repo_id
 }
 
 output "repo_name" {
-    description = "Name for the repository"
-    value = github_repository.project.name
+  description = "Name for the repository"
+  value       = github_repository.project.name
 }

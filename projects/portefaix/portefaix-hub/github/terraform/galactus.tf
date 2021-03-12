@@ -18,7 +18,7 @@ resource "github_repository" "project" {
   name        = "portefaix-hub"
   description = "Portefaix Hub"
 
-  homepage_url       = "https://charts.portefaix.xyz" 
+  homepage_url       = "https://charts.portefaix.xyz"
   has_issues         = true
   has_wiki           = true
   has_downloads      = true
@@ -28,7 +28,7 @@ resource "github_repository" "project" {
   pages {
     cname = "charts.portefaix.xyz"
     source {
-      branch = "gh-pages" 
+      branch = "gh-pages"
       path   = "/"
     }
   }

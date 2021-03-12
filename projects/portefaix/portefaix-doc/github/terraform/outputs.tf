@@ -12,11 +12,11 @@
 # limitations under the License.
 
 output "repo_full_name" {
-    description = "Full name for the repository"
-    value = github_repository.project.full_name
+  description = "Full name for the repository"
+  value       = github_repository.project.full_name
 }
 
 output "repo_name" {
-    description = "Name for the repository"
-    value = github_repository.project.name
+  description = "Name for the repository"
+  value       = github_repository.project.name
 }
