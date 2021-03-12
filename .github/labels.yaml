@@ -1,9 +1,6 @@
 # labels to be used with /area command
 area:
-  - 'gcp'
-  - 'aws'
-  - 'azure'
-  - 'kubernetes'
+  - 'terraform'
 
 kind:
   - 'documentation'
@@ -31,10 +28,10 @@ status:
   - dns/**/*
 
 'area/logging':
-  - iac/logging/**/*
+  - logging/**/*
 
 'area/monitoring':
-  - iac/monitoring/**/*
+  - monitoring/**/*
 
 'area/projects':
-  - iac/projects/**/*
+  - projects/**/*

@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-terraform {
-  required_version = ">= 0.12.0"
+provider "github" {
+  token = var.github_token
+  owner = var.github_owner
 }
