@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2019 Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# Copyright (C) 2018-2020 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,18 +12,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-APP="Galactus"
+APP = G A L A C T U S
+
+# GCP_PROJECT_preprod =
+# GCP_PROJECT_prod =
+# GCP_PROJECT = $(GCP_PROJECT_$(ENV))
+GCP_PROJECT = galactus
+GCP_CURRENT_PROJECT = $(shell gcloud info --format='value(config.project)')
+
+SHELL = /bin/bash -o pipefail
+
+DIR = $(shell pwd)
 
 NO_COLOR=\033[0m
 OK_COLOR=\033[32;01m
 ERROR_COLOR=\033[31;01m
 WARN_COLOR=\033[33;01m
+INFO_COLOR=\033[36m
+WHITE_COLOR=\033[1m
 
 MAKE_COLOR=\033[33;01m%-20s\033[0m
 
-SHELL = /bin/bash
-
 .DEFAULT_GOAL := help
+
+OK=[✅]
+KO=[❌]
+WARN=[⚠️]
+
+.PHONY: help
+help:
+	@echo -e "$(OK_COLOR)                      $(APP)$(NO_COLOR)"
+	@echo "------------------------------------------------------------------"
+	@echo ""
+	@awk 'BEGIN {FS = ":.*##"; printf "Usage: make ${INFO_COLOR}<target>${NO_COLOR}\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  ${INFO_COLOR}%-25s${NO_COLOR} %s\n", $$1, $$2 } /^##@/ { printf "\n${WHITE_COLOR}%s${NO_COLOR}\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+	@echo ""
+
+# .PHONY: help
+# help:
+# 	@echo -e "$(OK_COLOR)==== $(APP) ====$(NO_COLOR)"
+# 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(MAKE_COLOR) : %s\n", $$1, $$2}'
 
 guard-%:
 	@if [ "${${*}}" = "" ]; then \
@@ -31,46 +58,130 @@ guard-%:
 		exit 1; \
 	fi
 
-.PHONY: help
-help:
-	@echo -e "$(OK_COLOR)==== $(APP) ====$(NO_COLOR)"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(MAKE_COLOR) : %s\n", $$1, $$2}'
-
-.PHONY: check
-check: ## Check requirements
-	@echo -e "$(OK_COLOR)[$(CUSTOMER)] Check configuration$(NO_COLOR)"
-	@if [ "${GOOGLE_APPLICATION_CREDENTIALS}" = "" ]; then \
-			echo -e "$(ERROR_COLOR)[KO]$(NO_COLOR) Environment variable GOOGLE_APPLICATION_CREDENTIALS"; \
+check-%:
+	@if $$(hash $* 2> /dev/null); then \
+		echo -e "$(OK_COLOR)$(OK)$(NO_COLOR) $*"; \
 	else \
-			echo -e "$(OK_COLOR)[OK]$(NO_COLOR) Environment variable GOOGLE_APPLICATION_CREDENTIALS"; \
+		echo -e "$(ERROR_COLOR)$(KO)$(NO_COLOR) $*"; \
 	fi
 
-# init-terraform: guard-GOOGLE_APPLICATION_CREDENTIALS
-# 	@echo -e "$(OK_COLOR)[$(APP)] Initialize Terraform dependencies$(NO_COLOR)"
-# 	@cd uptimerobot && terraform init
-# 	@cd projects && terraform init
-# 	@cd github_zeiot && terraform init
-# 	@cd github_pilotariak && terraform init
+##@ Development
 
-# .PHONY: init
-# init: init-terraform ## Initialize dependencies
+.PHONY: check
+check: check-terraform check-gcloud guard-ENV ## Check requirements
+	@if [[ "${GCP_PROJECT}" != "${GCP_CURRENT_PROJECT}" ]] ; then \
+		echo -e "$(ERROR_COLOR)$(KO)$(NO_COLOR) ${GCP_CURRENT_PROJECT}"; \
+	else \
+		echo -e "$(OK_COLOR)$(OK)$(NO_COLOR) ${GCP_CURRENT_PROJECT}"; \
+	fi
 
-.PHONY: init
-init: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Plan Terraform (SERVICE=xxx)
-	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
-	cd $(SERVICE) && terraform init
 
-.PHONY: plan
-plan: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Plan Terraform (SERVICE=xxx)
-	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
-	cd $(SERVICE) && terraform plan -var-file ./galactus.tfvars
+# ====================================
+# G C L O U D
+# ====================================
 
-.PHONY: apply
-apply: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Apply Terraform (SERVICE=xxx)
-	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
-	cd $(SERVICE) && terraform apply -var-file ./galactus.tfvars
+##@ GCloud
 
-.PHONY: destroy
-destroy: guard-SERVICE guard-GOOGLE_APPLICATION_CREDENTIALS ## Destroy Terraform (SERVICE=xxx)
-	@echo -e "$(OK_COLOR)[$(APP)] Apply Terraform$(NO_COLOR)"
-	cd $(SERVICE) && terraform destroy -var-file ./galactus.tfvars
+# .SILENT:
+.PHONY: gcloud-project-current
+gcloud-project-current: ## Display current GCP project
+	@gcloud info --format='value(config.project)'
+
+.PHONY: gcloud-check-project
+gcloud-check-project: guard-ENV
+	@if [[ "${GCP_PROJECT}" != "${GCP_CURRENT_PROJECT}" ]] ; then \
+		echo -e "$(ERROR_COLOR)[KO]$(NO_COLOR) GCP project: ${GCP_PROJECT} vs ${GCP_CURRENT_PROJECT}"; \
+		exit 1; \
+	fi
+
+.PHONY: gcloud-project-switch
+gcloud-project-switch: guard-ENV ## Switch GCP project (ENV=xxx)
+	@gcloud config set project ${GCP_PROJECT}
+
+.PHONY: gcloud-secret-create
+gcloud-secret-create: guard-ENV guard-SERVICE guard-SECRET guard-DATA ## Create a secret
+	@echo -e "$(OK_COLOR)[$(APP)] Create a secret for: $(SERVICE)$(NO_COLOR)"
+	echo -n $(DATA) |  gcloud beta secrets create galactus_$(SERVICE)_$(ENV)_$(SECRET) \
+		--project $(GCP_PROJECT) \
+    	--replication-policy="automatic" --data-file=-
+
+.PHONY: gcloud-secret-create-from-file
+gcloud-secret-create-from-file: guard-ENV guard-CUSTOMER guard-SERVICE guard-SECRET guard-FILE ## Create a secret
+	@echo -e "$(OK_COLOR)[$(APP)] Create a secret for: $(SERVICE)$(NO_COLOR)"
+	gcloud beta secrets create galactus_$(SERVICE)_$(ENV)_$(SECRET) \
+		--project $(GCP_PROJECT) \
+    	--replication-policy="automatic" --data-file=$(FILE)
+
+# ====================================
+# T E R R A F O R M
+# ====================================
+
+##@ Terraform
+
+.PHONY: terraform-init
+terraform-init: guard-SERVICE guard-ENV ## Init infrastructure (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Plan infrastructure$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& cd $(SERVICE)/terraform \
+		&& terraform init -upgrade -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars
+else
+	cd $(SERVICE)/terraform \
+		&& terraform init -upgrade -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars
+endif
+
+.PHONY: terraform-plan
+terraform-plan: guard-SERVICE guard-ENV ## Plan infrastructure (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Plan infrastructure$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform plan -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+else
+	cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform plan -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+endif
+
+.PHONY: terraform-show
+terraform-show: guard-SERVICE guard-ENV ## Show infrastructure (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Show infrastructure$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform show
+else
+	cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform show
+endif
+
+.PHONY: terraform-apply
+terraform-apply: guard-SERVICE guard-ENV ## Builds or changes infrastructure (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Apply infrastructure$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform apply -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+else
+	cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform apply -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+endif
+
+.PHONY: terraform-destroy
+terraform-destroy: guard-SERVICE guard-ENV ## Builds or changes infrastructure (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Apply infrastructure$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+else
+	cd $(SERVICE)/terraform \
+		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
+endif
