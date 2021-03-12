@@ -1,0 +1,40 @@
+# labels to be used with /area command
+area:
+  - 'gcp'
+  - 'aws'
+  - 'azure'
+  - 'kubernetes'
+
+kind:
+  - 'documentation'
+  - 'discussion'
+  - 'feature'
+  - 'question'
+
+priority:
+  - 'low'
+  - 'medium'
+  - 'high'
+  - 'critical'
+
+status:
+  - available
+  - blocked
+  - in_progress
+  - on_hold
+
+# File globs for PR labeler
+# tests:
+#   - '**/*.test.ts'
+
+'area/dns':
+  - dns/**/*
+
+'area/logging':
+  - iac/logging/**/*
+
+'area/monitoring':
+  - iac/monitoring/**/*
+
+'area/projects':
+  - iac/projects/**/*
