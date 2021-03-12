@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "uptimerobot_account" "account" {}
+# data "uptimerobot_account" "account" {}
 
 # data "uptimerobot_alert_contact" "default_alert_contact" {
 #   friendly_name = "${data.uptimerobot_account.account.email}"
