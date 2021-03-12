@@ -27,6 +27,8 @@ resource "github_repository" "project" {
   topics = [
     "monitoring",
     "monitoring-mixins",
+    "grafana",
+    "prometheus",
     "galactus"
   ]
 }
