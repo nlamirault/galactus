@@ -13,6 +13,6 @@
 # limitations under the License.
 
 provider "github" {
-  version      = "~> 2.2.0"
+  version      = "~> 4.5.0"
   organization = var.github_organization
 }
