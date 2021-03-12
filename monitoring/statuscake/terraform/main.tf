@@ -18,7 +18,7 @@ terraform {
   required_providers {
     statuscake = {
       source  = "thde/statuscake"
-      version = "1.1.2"
+      version = "1.1.3"
     }
   }
 }
