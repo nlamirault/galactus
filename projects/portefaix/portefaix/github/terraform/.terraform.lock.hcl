@@ -20,20 +20,20 @@ provider "registry.terraform.io/hashicorp/github" {
 }
 
 provider "registry.terraform.io/integrations/github" {
-  version     = "4.5.1"
-  constraints = ">= 4.5.0, 4.5.1"
+  version     = "4.6.0"
+  constraints = ">= 4.5.0, 4.6.0"
   hashes = [
-    "h1:TX7kkj/VqMzjUWkk/bD7xYDsWWSWUV6jhZIHeJ0/uC0=",
-    "zh:273a7e12cd59005e14eb214c488da3bb3c938b169ce94d20de42897f79f9b0cf",
-    "zh:38cb6df63750fe0e490c7d581d90c1ea8a7e8f3e0dbc191232ac2f58971000a9",
-    "zh:3ac5c60f24bdfc975def2ee12e7cfae94306de027549701e8608b58d17b879ec",
-    "zh:55a527889b94c817003fef54338c7e5aec6d44f0dc5e568aad616f8f3ce555ba",
-    "zh:565bba6b5fb0a7ad0c75136c21ad223d7c4c3430843268da426a3ba4a1907a89",
-    "zh:5feb9dfaab30d43fd323f6472ea9572e710f0f0626c68acab3dd244a3a0928db",
-    "zh:75e3e549cdb10aec1b9681410c902ca1e5ec047b6754b0520d614f4e07f0bf1f",
-    "zh:7d0b0d853476e2820c829658023325d0b1b72bf0d1132dd2f8507bf7c4af035e",
-    "zh:81b15a0e67f3e973e4c0c3ee3eeee7e7a945ba2a891f8c5d4302709f14884a84",
-    "zh:b53a1c63f6bc4a3873d6f1802b9e3c7837aa137688f0ae3bf8d3a5851a626105",
-    "zh:f174e95c2407dc36c9617af8a19e6436edaaf0ad0c57d2d9d8284b1e37c0bf66",
+    "h1:2BbeMRVRLv086vsnxmjEBxhDut/1ozwh/BFatVxxrK0=",
+    "zh:22b529f43425a56fa9cc57774f54411a85ed7669bd66616799e119a9e5ddb676",
+    "zh:2f7e15f8b95ee61942043b57ab3af9e9f57cf9c65dbc5c6db72fac8eb06439f1",
+    "zh:2feaabc6cd2616ebe2ac81ec38ebf09786b765eade5a3b3aa57e2efa57aec46d",
+    "zh:5758627d28661cb594f2cf0c76f2ad8b60082732deedf182d300994e3b312cb5",
+    "zh:665fb20fbac19920b0681cac6a6908e13fecf5c36e935d75450c1519653f6dd7",
+    "zh:799cbcfdf5cac81fea36057fc7ecc247e01a54c08d367d17fb5a942c36b0802b",
+    "zh:7aad0a98aa0354dfb67cfa8f003914f8ca223502c92fb534f523c2f57dc906ff",
+    "zh:8a8a869af367322f392e51c3824a87d40d702c6f7b07e31217965a43f49d4617",
+    "zh:94edb9987e0f86b7eb485c16f907b1f27fb071ad87a036a17f933c24aa49f447",
+    "zh:b6fbdf5d198bd8bd5003f9d86730b206b7828b740c67ce44b643c254951f177a",
+    "zh:f6b169d435cf0a2e9e48a16e74b0b4430b7b5f1cbb9bfe6fc86e3ca9e462471d",
   ]
 }

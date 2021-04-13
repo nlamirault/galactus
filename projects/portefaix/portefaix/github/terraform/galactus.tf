@@ -105,6 +105,13 @@ resource "github_issue_label" "area_inspec" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "area_ansible" {
+  repository  = github_repository.project.name
+  name        = "area/ansible"
+  description = "Ansible"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "area_renovate" {
   repository  = github_repository.project.name
   name        = "area/renovate"
