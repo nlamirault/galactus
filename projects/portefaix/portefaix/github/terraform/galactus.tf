@@ -133,6 +133,13 @@ resource "github_issue_label" "dependency_helm" {
   color       = "6fcb70"
 }
 
+resource "github_issue_label" "dependency_flux" {
+  repository  = github_repository.project.name
+  name        = "dependency/flux"
+  description = "Dependency Flux"
+  color       = "6fcb70"
+}
+
 resource "github_issue_label" "size_xs" {
   repository  = github_repository.project.name
   name        = "size/xs"
