@@ -147,6 +147,13 @@ resource "github_issue_label" "dependency_flux" {
   color       = "6fcb70"
 }
 
+resource "github_issue_label" "dependency_ansible" {
+  repository  = github_repository.project.name
+  name        = "dependency/ansible"
+  description = "Dependency Ansible"
+  color       = "6fcb70"
+}
+
 resource "github_issue_label" "size_xs" {
   repository  = github_repository.project.name
   name        = "size/xs"
