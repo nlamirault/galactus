@@ -12,8 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-provider "github" {
-  version      = "~> 4.6.0"
-  token        = var.github_token
-  organization = var.github_organization
+terraform {
+  required_version = ">= 0.14.0"
+
+  required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "=4.6.0"
+    }
+  }
 }
