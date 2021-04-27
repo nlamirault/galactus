@@ -124,10 +124,10 @@ terraform-init: guard-SERVICE guard-ENV ## Init infrastructure (SERVICE=xxx ENV=
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
 	. $(SERVICE)/secret.sh \
     	&& cd $(SERVICE)/terraform \
-		&& terraform init -upgrade -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars
 else
 	cd $(SERVICE)/terraform \
-		&& terraform init -upgrade -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars
 endif
 
 .PHONY: terraform-plan
@@ -136,11 +136,11 @@ terraform-plan: guard-SERVICE guard-ENV ## Plan infrastructure (SERVICE=xxx ENV=
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
 	. $(SERVICE)/secret.sh \
     	&& cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform plan -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 else
 	cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform plan -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 endif
 
@@ -150,11 +150,11 @@ terraform-show: guard-SERVICE guard-ENV ## Show infrastructure (SERVICE=xxx ENV=
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
 	. $(SERVICE)/secret.sh \
     	&& cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform show
 else
 	cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform show
 endif
 
@@ -164,11 +164,11 @@ terraform-apply: guard-SERVICE guard-ENV ## Builds or changes infrastructure (SE
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
 	. $(SERVICE)/secret.sh \
     	&& cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform apply -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 else
 	cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform apply -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 endif
 
@@ -178,10 +178,10 @@ terraform-destroy: guard-SERVICE guard-ENV ## Builds or changes infrastructure (
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
 	. $(SERVICE)/secret.sh \
     	&& cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 else
 	cd $(SERVICE)/terraform \
-		&& terraform init -lock-timeout=60s -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
+		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 endif
