@@ -38,3 +38,80 @@ module "project_labels" {
 
   repository_name = github_repository.project.name
 }
+
+resource "github_issue_label" "area_opa" {
+  repository  = github_repository.project.name
+  name        = "area/opa"
+  description = "Open Policy Agent"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_kyverno" {
+  repository  = github_repository.project.name
+  name        = "area/kyverno"
+  description = "Kyverno"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_renovate" {
+  repository  = github_repository.project.name
+  name        = "area/renovate"
+  description = "Renovate"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github Action"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_kyverno" {
+  repository  = github_repository.project.name
+  name        = "dependency/kyverno"
+  description = "Dependency Kyverno"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_opa" {
+  repository  = github_repository.project.name
+  name        = "dependency/opa"
+  description = "Dependency Open Policy Agent"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "size_xs" {
+  repository  = github_repository.project.name
+  name        = "size/xs"
+  description = "Size XS"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_s" {
+  repository  = github_repository.project.name
+  name        = "size/s"
+  description = "Size S"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_m" {
+  repository  = github_repository.project.name
+  name        = "size/m"
+  description = "Size M"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_l" {
+  repository  = github_repository.project.name
+  name        = "size/l"
+  description = "Size L"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_xl" {
+  repository  = github_repository.project.name
+  name        = "size/xl"
+  description = "Size XL"
+  color       = "ededed"
+}
