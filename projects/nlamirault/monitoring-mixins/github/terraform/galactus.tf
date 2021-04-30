@@ -40,10 +40,17 @@ module "project_labels" {
   repository_name = github_repository.project.name
 }
 
+resource "github_issue_label" "area_renovate" {
+  repository  = github_repository.project.name
+  name        = "area/renovate"
+  description = "Renovate"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "area_kubernetes" {
   repository  = github_repository.project.name
   name        = "area/kubernetes"
-  description = "Helm"
+  description = "Kubernetes"
   color       = "cc317c"
 }
 
@@ -57,14 +64,14 @@ resource "github_issue_label" "area_prometheus" {
 resource "github_issue_label" "area_prometheus_operator" {
   repository  = github_repository.project.name
   name        = "area/prometheus_operator"
-  description = "Helm"
+  description = "Prometheus"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_node_exporter" {
   repository  = github_repository.project.name
   name        = "area/node_exporter"
-  description = "Helm"
+  description = "Node Exporter"
   color       = "cc317c"
 }
 
@@ -85,21 +92,21 @@ resource "github_issue_label" "area_alertmanager" {
 resource "github_issue_label" "area_cert_manager" {
   repository  = github_repository.project.name
   name        = "area/cert_manager"
-  description = "Helm"
+  description = "Thanos"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_grafana" {
   repository  = github_repository.project.name
   name        = "area/grafana"
-  description = "Helm"
+  description = "Grafana"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_loki" {
   repository  = github_repository.project.name
   name        = "area/loki"
-  description = "Helm"
+  description = "Loki"
   color       = "cc317c"
 }
 
@@ -113,36 +120,50 @@ resource "github_issue_label" "area_promtail" {
 resource "github_issue_label" "area_kube_state_metrics" {
   repository  = github_repository.project.name
   name        = "area/kube_state_metrics"
-  description = "Helm"
+  description = "Promtail"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_etcd" {
   repository  = github_repository.project.name
   name        = "area/etcd"
-  description = "Helm"
+  description = "Etcd"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_memcached" {
   repository  = github_repository.project.name
   name        = "area/memcached"
-  description = "Helm"
+  description = "Memcached"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_redis" {
   repository  = github_repository.project.name
   name        = "area/redis"
-  description = "Helm"
+  description = "Redis"
   color       = "cc317c"
 }
 
-resource "github_issue_label" "area_mino" {
+resource "github_issue_label" "area_minio" {
   repository  = github_repository.project.name
   name        = "area/minio"
-  description = "Helm"
+  description = "Minio"
   color       = "cc317c"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_jsonnet" {
+  repository  = github_repository.project.name
+  name        = "dependency/jsonnet"
+  description = "Dependency Jsonnet"
+  color       = "6fcb70"
 }
 
 resource "github_issue_label" "size_xs" {
