@@ -74,3 +74,101 @@ resource "github_issue_label" "area_projects" {
   description = "Projects"
   color       = "cc317c"
 }
+
+resource "github_issue_label" "provider_gcp" {
+  repository  = github_repository.project.name
+  name        = "provider/gcp"
+  description = "Cloud PRovider / Google Cloud Provider"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "provider_aws" {
+  repository  = github_repository.project.name
+  name        = "provider/aws"
+  description = "Cloud PRovider / Amazon AWS"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "provider_azure" {
+  repository  = github_repository.project.name
+  name        = "provider/azure"
+  description = "Cloud PRovider / Microsoft Azure"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "provider_scaleway" {
+  repository  = github_repository.project.name
+  name        = "provider/scaleway"
+  description = "Cloud PRovider / Scaleway"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "provider_digitalocean" {
+  repository  = github_repository.project.name
+  name        = "provider/digitalocean"
+  description = "Cloud PRovider / Digital Ocean"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "provider_alicloud" {
+  repository  = github_repository.project.name
+  name        = "provider/alicloud"
+  description = "Cloud PRovider / Alicloud"
+  color       = "b079a4"
+}
+
+resource "github_issue_label" "dependency_terraform" {
+  repository  = github_repository.project.name
+  name        = "dependency/terraform"
+  description = "Dependency Terraform"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_docker" {
+  repository  = github_repository.project.name
+  name        = "dependency/docker"
+  description = "Dependency Docker"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github Actions"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "size_xs" {
+  repository  = github_repository.project.name
+  name        = "size/xs"
+  description = "Size XS"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_s" {
+  repository  = github_repository.project.name
+  name        = "size/s"
+  description = "Size S"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_m" {
+  repository  = github_repository.project.name
+  name        = "size/m"
+  description = "Size M"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_l" {
+  repository  = github_repository.project.name
+  name        = "size/l"
+  description = "Size L"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_xl" {
+  repository  = github_repository.project.name
+  name        = "size/xl"
+  description = "Size XL"
+  color       = "ededed"
+}
