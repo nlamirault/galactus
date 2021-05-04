@@ -41,7 +41,7 @@ resource "github_repository" "project" {
 
 module "project_labels" {
   source  = "nlamirault/project/github//modules/labels"
-  version = "0.2.0"
+  version = "0.3.0"
 
   repository_name = github_repository.project.name
 }
