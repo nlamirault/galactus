@@ -57,6 +57,13 @@ resource "github_issue_label" "area_renovate" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "area_github" {
+  repository  = github_repository.project.name
+  name        = "area/github"
+  description = "Github"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "dependency_helm" {
   repository  = github_repository.project.name
   name        = "dependency/helm"
