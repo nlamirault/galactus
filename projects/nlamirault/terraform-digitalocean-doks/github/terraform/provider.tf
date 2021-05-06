@@ -13,6 +13,6 @@
 # limitations under the License.
 
 provider "github" {
-  organization = var.github_organization
-  # owner = var.github_organization
+  token = var.github_token
+  owner = var.github_owner
 }
