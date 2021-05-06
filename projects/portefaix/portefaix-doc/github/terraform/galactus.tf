@@ -53,9 +53,58 @@ resource "github_issue_label" "area_renovate" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "area_github" {
+  repository  = github_repository.project.name
+  name        = "area/github"
+  description = "Github"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github Actions"
+  color       = "6fcb70"
+}
+
 resource "github_issue_label" "dependency_nodejs" {
   repository  = github_repository.project.name
   name        = "dependency/nodejs"
   description = "Dependency NodeJS"
   color       = "6fcb70"
+}
+
+resource "github_issue_label" "size_xs" {
+  repository  = github_repository.project.name
+  name        = "size/xs"
+  description = "Size XS"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_s" {
+  repository  = github_repository.project.name
+  name        = "size/s"
+  description = "Size S"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_m" {
+  repository  = github_repository.project.name
+  name        = "size/m"
+  description = "Size M"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_l" {
+  repository  = github_repository.project.name
+  name        = "size/l"
+  description = "Size L"
+  color       = "ededed"
+}
+
+resource "github_issue_label" "size_xl" {
+  repository  = github_repository.project.name
+  name        = "size/xl"
+  description = "Size XL"
+  color       = "ededed"
 }

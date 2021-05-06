@@ -67,6 +67,13 @@ resource "github_issue_label" "dependency_terraform" {
   color       = "6fcb70"
 }
 
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github Actions"
+  color       = "6fcb70"
+}
+
 resource "github_issue_label" "size_xs" {
   repository  = github_repository.project.name
   name        = "size/xs"
