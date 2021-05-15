@@ -17,6 +17,7 @@
 resource "github_repository" "project" {
   name        = "portefaix"
   description = "Kubernetes lab"
+  #tfsec:ignore:GEN004
 
   has_issues             = true
   has_wiki               = true
@@ -45,42 +46,56 @@ module "project_labels" {
 resource "github_issue_label" "area_gcp" {
   repository  = github_repository.project.name
   name        = "area/gcp"
-  description = "Cloud PRovider / Google Cloud Provider"
+  description = "Cloud Provider / Google Cloud Provider"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_aws" {
   repository  = github_repository.project.name
   name        = "area/aws"
-  description = "Cloud PRovider / Amazon AWS"
+  description = "Cloud Provider / Amazon AWS"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_azure" {
   repository  = github_repository.project.name
   name        = "area/azure"
-  description = "Cloud PRovider / Microsoft Azure"
+  description = "Cloud Provider / Microsoft Azure"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_scaleway" {
   repository  = github_repository.project.name
   name        = "area/scaleway"
-  description = "Cloud PRovider / Scaleway"
+  description = "Cloud Provider / Scaleway"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_digitalocean" {
   repository  = github_repository.project.name
   name        = "area/digitalocean"
-  description = "Cloud PRovider / Digital Ocean"
+  description = "Cloud Provider / Digital Ocean"
   color       = "cc317c"
 }
 
 resource "github_issue_label" "area_alicloud" {
   repository  = github_repository.project.name
   name        = "area/alicloud"
-  description = "Cloud PRovider / Alicloud"
+  description = "Cloud Provider / Alicloud"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_c" {
+  repository  = github_repository.project.name
+  name        = "area/exoscale"
+  description = "Cloud Provider / Exoscale"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_homelab" {
+  repository  = github_repository.project.name
+  name        = "area/homelab"
+  description = "Cloud Provider / Homelab"
   color       = "cc317c"
 }
 
