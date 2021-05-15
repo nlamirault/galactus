@@ -18,6 +18,8 @@ domain_name = "lamirault.xyz"
 
 cloud_record_name = "cloud"
 
+homelab_record_name = "homelab"
+
 status_record_name = "status"
 
 status_record_value = "status.freshstatus.io."

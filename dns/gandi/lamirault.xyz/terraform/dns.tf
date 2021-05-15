@@ -31,10 +31,10 @@ resource "gandi_zonerecord" "cloud_record" {
 
 resource "gandi_zonerecord" "homelab_record" {
   zone   = data.gandi_zone.main.id
-  name   = var.cloud_record_name
+  name   = var.homelab_record_name
   type   = "A"
   ttl    = "1800"
-  values = [var.cloud_record_value]
+  values = [var.homelab_record_value]
 }
 
 resource "gandi_zonerecord" "status_record" {
