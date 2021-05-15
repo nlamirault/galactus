@@ -21,8 +21,10 @@ terraform {
       # version = "= 2.0.0"
       # source  = "manvalls/gandi"
       # version = "2.0.0-rc2-fork"
-      source  = "psychopenguin/gandi"
-      version = "2.0.0-rc3"
+      # source  = "psychopenguin/gandi"
+      # version = "2.0.0-rc3"
+      source  = "rienafairefr/gandi"
+      version = "1.1.2"
     }
     # gandi-2 = {
     #   source  = "manvalls/gandi"
