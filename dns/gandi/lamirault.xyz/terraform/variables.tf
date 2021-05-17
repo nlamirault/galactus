@@ -38,16 +38,6 @@ variable "cloud_record_name" {
   description = "Name of the Cloud website"
 }
 
-variable "homelab_record_value" {
-  type        = string
-  description = "Value of the homelab website"
-}
-
-variable "homelab_record_name" {
-  type        = string
-  description = "Name of the homelab website"
-}
-
 variable "status_record_value" {
   type        = string
   description = "Value of the Status website"
