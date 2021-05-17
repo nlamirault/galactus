@@ -99,6 +99,13 @@ resource "github_issue_label" "cloud_homelab" {
   color       = "068082"
 }
 
+resource "github_issue_label" "needs_cloud" {
+  repository  = github_repository.project.name
+  name        = "needs/cloud"
+  description = "Indicates a PR lacks a `cloud/foo` label and requires one."
+  color       = "D669BE"
+}
+
 resource "github_issue_label" "area_kubernetes" {
   repository  = github_repository.project.name
   name        = "area/kubernetes"
