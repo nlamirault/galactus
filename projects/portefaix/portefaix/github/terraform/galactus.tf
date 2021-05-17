@@ -45,58 +45,58 @@ module "project_labels" {
 
 resource "github_issue_label" "area_gcp" {
   repository  = github_repository.project.name
-  name        = "area/gcp"
+  name        = "cloud/gcp"
   description = "Cloud Provider / Google Cloud Provider"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_aws" {
+resource "github_issue_label" "cloud_aws" {
   repository  = github_repository.project.name
-  name        = "area/aws"
+  name        = "cloud/aws"
   description = "Cloud Provider / Amazon AWS"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_azure" {
+resource "github_issue_label" "cloud_azure" {
   repository  = github_repository.project.name
-  name        = "area/azure"
+  name        = "cloud/azure"
   description = "Cloud Provider / Microsoft Azure"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_scaleway" {
+resource "github_issue_label" "cloud_scaleway" {
   repository  = github_repository.project.name
-  name        = "area/scaleway"
+  name        = "cloud/scaleway"
   description = "Cloud Provider / Scaleway"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_digitalocean" {
+resource "github_issue_label" "cloud_digitalocean" {
   repository  = github_repository.project.name
-  name        = "area/digitalocean"
+  name        = "cloud/digitalocean"
   description = "Cloud Provider / Digital Ocean"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_alicloud" {
+resource "github_issue_label" "cloud_alicloud" {
   repository  = github_repository.project.name
-  name        = "area/alicloud"
+  name        = "cloud/alicloud"
   description = "Cloud Provider / Alicloud"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_c" {
+resource "github_issue_label" "cloud_exoscale" {
   repository  = github_repository.project.name
-  name        = "area/exoscale"
+  name        = "cloud/exoscale"
   description = "Cloud Provider / Exoscale"
-  color       = "cc317c"
+  color       = "068082"
 }
 
-resource "github_issue_label" "area_homelab" {
+resource "github_issue_label" "cloud_homelab" {
   repository  = github_repository.project.name
-  name        = "area/homelab"
+  name        = "cloud/homelab"
   description = "Cloud Provider / Homelab"
-  color       = "cc317c"
+  color       = "068082"
 }
 
 resource "github_issue_label" "area_kubernetes" {
