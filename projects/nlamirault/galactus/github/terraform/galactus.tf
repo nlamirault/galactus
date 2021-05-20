@@ -33,9 +33,9 @@ module "project_labels" {
   repository_name = github_repository.project.name
 }
 
-resource "github_issue_label" "area_renovate" {
+resource "github_issue_label" "kind_renovate" {
   repository  = github_repository.project.name
-  name        = "area/renovate"
+  name        = "kind/renovate"
   description = "Renovate"
   color       = "cc317c"
 }
