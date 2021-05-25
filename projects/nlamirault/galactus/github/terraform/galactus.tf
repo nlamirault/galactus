@@ -33,13 +33,6 @@ module "project_labels" {
   repository_name = github_repository.project.name
 }
 
-resource "github_issue_label" "kind_renovate" {
-  repository  = github_repository.project.name
-  name        = "kind/renovate"
-  description = "Renovate"
-  color       = "cc317c"
-}
-
 resource "github_issue_label" "area_terraform" {
   repository  = github_repository.project.name
   name        = "area/terraform"
