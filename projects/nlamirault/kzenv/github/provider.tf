@@ -13,7 +13,7 @@
 # limitations under the License.
 
 provider "github" {
-  version      = "~> 4.9.0"
+  version      = "~> 4.10.0"
   token        = var.github_token
   organization = var.github_organization
 }
