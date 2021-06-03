@@ -41,10 +41,11 @@ repos:
       - '--args=--enable-rule=terraform_typed_variables'
       - '--args=--enable-rule=terraform_naming_convention'
       - '--args=--enable-rule=terraform_required_version'
-      # - '--args=--enable-rule=terraform_required_providers'
+      - '--args=--enable-rule=terraform_required_providers'
       - '--args=--enable-rule=terraform_unused_required_providers'
-      # - '--args=--enable-rule=terraform_standard_module_structure'
+      - '--args=--enable-rule=terraform_standard_module_structure'
     # - id: terraform_tfsec
-      # See: https://github.com/antonbabenko/pre-commit-terraform/issues/136
+    - id: terrascan
+      #  See: https://github.com/antonbabenko/pre-commit-terraform/issues/136
       # args:
       #  - '--args=--config-file ./.tfsec.yml'
