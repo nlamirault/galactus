@@ -13,7 +13,7 @@
 # limitations under the License.
 
 terraform {
-  required_version = "=0.15.4"
+  required_version = "=0.15.5"
 
   required_providers {
     statuscake = {
