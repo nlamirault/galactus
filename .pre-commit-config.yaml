@@ -43,7 +43,7 @@ repos:
       - '--args=--enable-rule=terraform_required_version'
       - '--args=--enable-rule=terraform_required_providers'
       - '--args=--enable-rule=terraform_unused_required_providers'
-      # - '--args=--enable-rule=terraform_standard_module_structure'
+      - '--args=--enable-rule=terraform_standard_module_structure'
       - '--args=--loglevel=debug'
     # - id: terraform_tfsec
     - id: terrascan
