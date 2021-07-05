@@ -44,6 +44,7 @@ repos:
       - '--args=--enable-rule=terraform_required_providers'
       - '--args=--enable-rule=terraform_unused_required_providers'
       # - '--args=--enable-rule=terraform_standard_module_structure'
+      - '--loglevel=debug'
     # - id: terraform_tfsec
     - id: terrascan
       #  See: https://github.com/antonbabenko/pre-commit-terraform/issues/136
