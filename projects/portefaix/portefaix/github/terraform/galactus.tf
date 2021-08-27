@@ -25,7 +25,8 @@ resource "github_repository" "project" {
   has_projects           = true
   allow_merge_commit     = true
   delete_branch_on_merge = true
-
+  vulnerability_alerts   = true
+  
   pages {
     source {
       branch = "gh-pages"
@@ -96,6 +97,13 @@ resource "github_issue_label" "cloud_homelab" {
   repository  = github_repository.project.name
   name        = "cloud/homelab"
   description = "Cloud Provider / Homelab"
+  color       = "068082"
+}
+
+resource "github_issue_label" "cloud_cicd" {
+  repository  = github_repository.project.name
+  name        = "cloud/cicd"
+  description = "Cloud Provider / CICD"
   color       = "068082"
 }
 
