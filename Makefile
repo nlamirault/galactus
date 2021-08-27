@@ -185,3 +185,13 @@ else
 		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
 endif
+
+.PHONY: terraform-tflint
+terraform-tflint: guard-SERVICE guard-ENV ## Terraform lint (SERVICE=xxx ENV=xxx)
+	@echo -e "$(OK_COLOR)[$(APP)] Check Terraform style$(NO_COLOR)"
+ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
+	. $(SERVICE)/secret.sh \
+    	&& tflint -c .tflint.hcl $(SERVICE)/terraform 
+else
+	tflint -c .tflint.hcl $(SERVICE)/terraform
+endif
