@@ -37,14 +37,6 @@ module "project_labels" {
 
   repository_name = github_repository.project.name
 }
-
-resource "github_issue_label" "area_postmortem" {
-  repository  = github_repository.project.name
-  name        = "area/postmortem"
-  description = "Postmortem"
-  color       = "cc317c"
-}
-
 resource "github_issue_label" "area_renovate" {
   repository  = github_repository.project.name
   name        = "area/renovate"
@@ -99,4 +91,11 @@ resource "github_issue_label" "size_xl" {
   name        = "size/xl"
   description = "Size XL"
   color       = "ededed"
+}
+
+resource "github_issue_label" "kind_postmortem" {
+  repository  = github_repository.project.name
+  name        = "kind/postmortem"
+  description = "Categorizes issue or PR as related to a new postmortem"
+  color       = "505961"
 }
