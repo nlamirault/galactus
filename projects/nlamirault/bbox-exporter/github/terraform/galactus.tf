@@ -44,7 +44,21 @@ module "project_labels" {
 resource "github_issue_label" "area_golang" {
   repository  = github_repository.project.name
   name        = "area/golang"
-  description = "Terraform"
+  description = "Golang"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_github" {
+  repository  = github_repository.project.name
+  name        = "area/github"
+  description = "Github"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "area_docker" {
+  repository  = github_repository.project.name
+  name        = "area/docker"
+  description = "Docker"
   color       = "cc317c"
 }
 
@@ -59,6 +73,13 @@ resource "github_issue_label" "dependency_github" {
   repository  = github_repository.project.name
   name        = "dependency/github"
   description = "Dependency Github Actions"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_docker" {
+  repository  = github_repository.project.name
+  name        = "dependency/docker"
+  description = "Dependency Docker"
   color       = "6fcb70"
 }
 
