@@ -62,6 +62,13 @@ resource "github_issue_label" "area_docker" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "area_helm" {
+  repository  = github_repository.project.name
+  name        = "area/helm"
+  description = "Helm"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "dependency_golang" {
   repository  = github_repository.project.name
   name        = "dependency/golang"
