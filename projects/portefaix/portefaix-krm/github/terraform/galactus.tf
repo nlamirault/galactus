@@ -64,6 +64,34 @@ resource "github_issue_label" "area_kubernetes" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "krm_crossplane" {
+  repository  = github_repository.project.name
+  name        = "krm/crossplane"
+  description = "Crossplane"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "krm_gcp_config_connector" {
+  repository  = github_repository.project.name
+  name        = "krm/gcp-config-connector"
+  description = "GCP Config Connector"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "krm_aws_controllers_k8s" {
+  repository  = github_repository.project.name
+  name        = "krm/aws-controllers-k8s"
+  description = "AWS Controllers for Kubernetes"
+  color       = "cc317c"
+}
+
+resource "github_issue_label" "krm_azure_service_operator" {
+  repository  = github_repository.project.name
+  name        = "krm/azure-service-operator"
+  description = "Azure Service Operator"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "dependency_crossplane" {
   repository  = github_repository.project.name
   name        = "dependency/crossplane"
