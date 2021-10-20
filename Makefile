@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# Copyright (C) 2021 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -122,7 +122,7 @@ gcloud-secret-create-from-file: guard-ENV guard-CUSTOMER guard-SERVICE guard-SEC
 terraform-init: guard-SERVICE guard-ENV ## Init infrastructure (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Plan infrastructure$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& cd $(SERVICE)/terraform \
 		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars
 else
@@ -134,7 +134,7 @@ endif
 terraform-plan: guard-SERVICE guard-ENV ## Plan infrastructure (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Plan infrastructure$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& cd $(SERVICE)/terraform \
 		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform plan -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
@@ -148,7 +148,7 @@ endif
 terraform-show: guard-SERVICE guard-ENV ## Show infrastructure (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Show infrastructure$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& cd $(SERVICE)/terraform \
 		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform show
@@ -162,7 +162,7 @@ endif
 terraform-apply: guard-SERVICE guard-ENV ## Builds or changes infrastructure (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Apply infrastructure$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& cd $(SERVICE)/terraform \
 		&& terraform init -upgrade -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform apply -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
@@ -176,7 +176,7 @@ endif
 terraform-destroy: guard-SERVICE guard-ENV ## Builds or changes infrastructure (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Apply infrastructure$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& cd $(SERVICE)/terraform \
 		&& terraform init -reconfigure -backend-config=backend-vars/$(ENV).tfvars \
 		&& terraform destroy -lock-timeout=60s -var-file=tfvars/$(ENV).tfvars
@@ -190,7 +190,7 @@ endif
 terraform-tflint: guard-SERVICE guard-ENV ## Terraform lint (SERVICE=xxx ENV=xxx)
 	@echo -e "$(OK_COLOR)[$(APP)] Check Terraform style$(NO_COLOR)"
 ifneq ("$(wildcard $(SERVICE)/secret.sh)","")
-	. $(SERVICE)/secret.sh \
+	. $(SERVICE)/secret.sh $(GCP_PROJECT) \
     	&& tflint -c .tflint.hcl $(SERVICE)/terraform 
 else
 	tflint -c .tflint.hcl $(SERVICE)/terraform
