@@ -24,6 +24,7 @@ resource "github_repository" "project" {
   has_projects           = true
   allow_merge_commit     = true
   delete_branch_on_merge = true
+  vulnerability_alerts   = true
 
   # pages {
   #   source {
