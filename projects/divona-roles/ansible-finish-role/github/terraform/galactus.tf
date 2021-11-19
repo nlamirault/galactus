@@ -15,8 +15,8 @@
 # -------------------------------------------------------------------
 
 resource "github_repository" "project" {
-  name        = "ansible-desktop-role"
-  description = "Role which configure desktop"
+  name        = "ansible-finish-role"
+  description = "Finish role"
 
   has_issues             = true
   has_wiki               = true
@@ -33,7 +33,7 @@ resource "github_repository" "project" {
   #   }
   # }
 
-  topics = ["ansible", "desktop", "divona", "galactus"]
+  topics = ["ansible", "finish", "divona", "galactus"]
 }
 
 module "project_labels" {
@@ -50,10 +50,10 @@ resource "github_issue_label" "area_ansible" {
   color       = "cc317c"
 }
 
-resource "github_issue_label" "area_renovate" {
+resource "github_issue_label" "area_github" {
   repository  = github_repository.project.name
-  name        = "area/renovate"
-  description = "Renovate"
+  name        = "area/github"
+  description = "Github"
   color       = "cc317c"
 }
 
@@ -61,6 +61,13 @@ resource "github_issue_label" "dependency_ansible" {
   repository  = github_repository.project.name
   name        = "dependency/ansible"
   description = "Dependency Ansible"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github"
   color       = "6fcb70"
 }
 
