@@ -50,9 +50,9 @@ resource "github_issue_label" "area_ansible" {
   color       = "cc317c"
 }
 
-resource "github_issue_label" "area_renovate" {
+resource "github_issue_label" "area_github" {
   repository  = github_repository.project.name
-  name        = "area/renovate"
+  name        = "area/github"
   description = "Renovate"
   color       = "cc317c"
 }
@@ -61,6 +61,13 @@ resource "github_issue_label" "dependency_ansible" {
   repository  = github_repository.project.name
   name        = "dependency/ansible"
   description = "Dependency Ansible"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github"
   color       = "6fcb70"
 }
 
