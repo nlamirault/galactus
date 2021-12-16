@@ -177,6 +177,13 @@ resource "github_issue_label" "dependency_flux" {
   color       = "6fcb70"
 }
 
+resource "github_issue_label" "dependency_argo" {
+  repository  = github_repository.project.name
+  name        = "dependency/argo"
+  description = "Dependency Argo"
+  color       = "6fcb70"
+}
+
 resource "github_issue_label" "dependency_ansible" {
   repository  = github_repository.project.name
   name        = "dependency/ansible"

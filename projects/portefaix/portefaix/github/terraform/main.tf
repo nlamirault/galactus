@@ -13,12 +13,12 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 0.14.0"
+  required_version = ">= 1.0.0"
 
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "=4.19.0"
+      version = "4.19.0"
     }
   }
 }
