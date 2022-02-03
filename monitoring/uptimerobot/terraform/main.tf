@@ -13,12 +13,12 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 0.15.0"
+  required_version = ">= 1.0.0"
 
   required_providers {
     uptimerobot = {
-      source  = "louy/uptimerobot"
-      version = "0.5.1"
+      source = "vexxhost/uptimerobot"
+      version = "0.8.0"
     }
   }
 }

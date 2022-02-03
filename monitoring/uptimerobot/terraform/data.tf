@@ -12,22 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "nicolas_website_url" {
-  type        = string
-  description = "URL of Nicolas website"
-}
+data "uptimerobot_account" "account" {}
 
-variable "cloud_website_url" {
-  type        = string
-  description = "URL of Cloud website"
-}
-
-variable "synology_access_host_cloud" {
-  type        = string
-  description = "Hostname of the Synology access"
-}
-
-variable "synology_access_port_cloud" {
-  type        = string
-  description = "Port of the Synology access"
+data "uptimerobot_alert_contact" "default_alert_contact" {
+  friendly_name = data.uptimerobot_account.account.email
 }

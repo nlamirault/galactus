@@ -15,14 +15,6 @@
 ##########################################################################
 # HTTP
 
-resource "statuscake_test" "box_external_access" {
-  website_name  = "[Galactus] Box"
-  website_url   = var.box_url
-  test_type     = "HTTP"
-  check_rate    = 300
-  contact_group = var.statuscake_contact_group
-}
-
 resource "statuscake_test" "nicolas_website" {
   website_name  = "[Galactus] Nicolas website"
   website_url   = var.nicolas_website_url
@@ -41,33 +33,6 @@ resource "statuscake_test" "cloud_website" {
 
 ##########################################################################
 # TCP
-
-resource "statuscake_test" "kubernetes_access" {
-  website_name  = "[Galactus] Kubernetes access"
-  website_url   = var.kubernetes_access_host
-  test_type     = "TCP"
-  port          = var.kubernetes_access_port
-  check_rate    = 300
-  contact_group = var.statuscake_contact_group
-}
-
-resource "statuscake_test" "synology_access" {
-  website_name  = "[Galactus] Synology access"
-  website_url   = var.synology_access_host
-  test_type     = "TCP"
-  port          = var.synology_access_port
-  check_rate    = 300
-  contact_group = var.statuscake_contact_group
-}
-
-resource "statuscake_test" "kubernetes_access_cloud" {
-  website_name  = "[Galactus] Kubernetes access Cloud"
-  website_url   = var.kubernetes_access_host_cloud
-  test_type     = "TCP"
-  port          = var.kubernetes_access_port_cloud
-  check_rate    = 300
-  contact_group = var.statuscake_contact_group
-}
 
 resource "statuscake_test" "synology_access_cloud" {
   website_name  = "[Galactus] Synology access Cloud"

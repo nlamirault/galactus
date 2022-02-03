@@ -17,11 +17,6 @@ variable statuscake_contact_group {
   type        = set(string)
 }
 
-variable box_url {
-  type        = string
-  description = "URL of the box"
-}
-
 variable nicolas_website_url {
   type        = string
   description = "URL of Nicolas website"
@@ -30,36 +25,6 @@ variable nicolas_website_url {
 variable cloud_website_url {
   type        = string
   description = "URL of Cloud website"
-}
-
-variable kubernetes_access_host {
-  type        = string
-  description = "Hostname of the Kubernetes access"
-}
-
-variable kubernetes_access_port {
-  type        = string
-  description = "Port of the Kubernetes access"
-}
-
-variable synology_access_host {
-  type        = string
-  description = "Hostname of the Synology access"
-}
-
-variable synology_access_port {
-  type        = string
-  description = "Port of the Synology access"
-}
-
-variable kubernetes_access_host_cloud {
-  type        = string
-  description = "Hostname of the Kubernetes access Cloud"
-}
-
-variable kubernetes_access_port_cloud {
-  type        = string
-  description = "Port of the Kubernetes access Cloud"
 }
 
 variable synology_access_host_cloud {

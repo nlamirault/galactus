@@ -12,24 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-box_url = "https://idefix.hopto.org:12333"
-
 nicolas_website_url = "https://nicolas.lamirault.xyz"
 
 cloud_website_url = "https://cloud.lamirault.xyz"
 
-kubernetes_access_host_cloud = "cloud.lamirault.xyz"
-
-kubernetes_access_port_cloud = "8777"
-
 synology_access_host_cloud = "cloud.lamirault.xyz"
 
 synology_access_port_cloud = "8666"
-
-kubernetes_access_host_hopto = "idefix.hopto.org"
-
-kubernetes_access_port_hopto = "8777"
-
-synology_access_host_hopto = "idefix.hopto.org"
-
-synology_access_port_hopto = "8666"

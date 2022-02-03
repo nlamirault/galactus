@@ -14,23 +14,9 @@
 
 statuscake_contact_group = ["151024"]
 
-box_url = "https://idefix.hopto.org:12333"
-
 nicolas_website_url = "https://nicolas.lamirault.xyz"
 
 cloud_website_url = "https://cloud.lamirault.xyz"
-
-kubernetes_access_host = "idefix.hopto.org"
-
-kubernetes_access_port = "8777"
-
-synology_access_host = "idefix.hopto.org"
-
-synology_access_port = "8666"
-
-kubernetes_access_host_cloud = "cloud.lamirault.xyz"
-
-kubernetes_access_port_cloud = "8777"
 
 synology_access_host_cloud = "cloud.lamirault.xyz"
 
