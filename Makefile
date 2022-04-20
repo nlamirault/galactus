@@ -87,6 +87,10 @@ check: check-terraform check-gcloud guard-ENV ## Check requirements
 gcloud-project-current: ## Display current GCP project
 	@gcloud info --format='value(config.project)'
 
+.PHONY: gcp-project-switch
+gcp-project-switch: guard-ENV ## Switch GCP project
+	gcloud config set project ${GCP_PROJECT}
+
 .PHONY: gcloud-check-project
 gcloud-check-project: guard-ENV
 	@if [[ "${GCP_PROJECT}" != "${GCP_CURRENT_PROJECT}" ]] ; then \
