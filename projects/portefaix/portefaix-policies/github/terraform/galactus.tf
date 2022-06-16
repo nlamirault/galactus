@@ -53,6 +53,13 @@ resource "github_issue_label" "area_kyverno" {
   color       = "cc317c"
 }
 
+resource "github_issue_label" "area_kubewarden" {
+  repository  = github_repository.project.name
+  name        = "area/kubewarden"
+  description = "Kubewarden"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "area_renovate" {
   repository  = github_repository.project.name
   name        = "area/renovate"
@@ -85,6 +92,13 @@ resource "github_issue_label" "dependency_opa" {
   repository  = github_repository.project.name
   name        = "dependency/opa"
   description = "Dependency Open Policy Agent"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_kubewarden" {
+  repository  = github_repository.project.name
+  name        = "dependency/kubewarden"
+  description = "Dependency Kubewarden"
   color       = "6fcb70"
 }
 
