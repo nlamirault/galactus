@@ -14,9 +14,6 @@
 
 APP = G A L A C T U S
 
-# GCP_PROJECT_preprod =
-# GCP_PROJECT_prod =
-# GCP_PROJECT = $(GCP_PROJECT_$(ENV))
 GCP_PROJECT = galactus
 GCP_CURRENT_PROJECT = $(shell gcloud info --format='value(config.project)')
 

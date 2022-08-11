@@ -39,9 +39,9 @@ resource "github_repository" "project" {
 
 module "project_labels" {
   source  = "nlamirault/project/github//modules/labels"
-  version = "0.4.0"
+  version = "1.2.0"
 
-  repository_name = github_repository.project.name
+  repository_name = github_repository.project.full_name
 }
 
 resource "github_issue_label" "cloud_aws" {
