@@ -35,9 +35,9 @@ resource "github_repository" "project" {
 
 module "project_labels" {
   source  = "nlamirault/project/github//modules/labels"
-  version = "0.4.0"
+  version = "1.2.0"
 
-  repository_name = github_repository.project.name
+  repository_name = github_repository.project.full_name
 }
 
 resource "github_issue_label" "area_terraform" {
@@ -66,39 +66,4 @@ resource "github_issue_label" "dependency_github" {
   name        = "dependency/github"
   description = "Dependency Github Actions"
   color       = "6fcb70"
-}
-
-resource "github_issue_label" "size_xs" {
-  repository  = github_repository.project.name
-  name        = "size/xs"
-  description = "Size XS"
-  color       = "ededed"
-}
-
-resource "github_issue_label" "size_s" {
-  repository  = github_repository.project.name
-  name        = "size/s"
-  description = "Size S"
-  color       = "ededed"
-}
-
-resource "github_issue_label" "size_m" {
-  repository  = github_repository.project.name
-  name        = "size/m"
-  description = "Size M"
-  color       = "ededed"
-}
-
-resource "github_issue_label" "size_l" {
-  repository  = github_repository.project.name
-  name        = "size/l"
-  description = "Size L"
-  color       = "ededed"
-}
-
-resource "github_issue_label" "size_xl" {
-  repository  = github_repository.project.name
-  name        = "size/xl"
-  description = "Size XL"
-  color       = "ededed"
 }
