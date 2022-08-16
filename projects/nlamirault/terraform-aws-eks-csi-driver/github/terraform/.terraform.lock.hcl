@@ -2,22 +2,22 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/integrations/github" {
-  version     = "4.21.0"
-  constraints = ">= 4.5.0, 4.21.0"
+  version     = "4.29.0"
+  constraints = "4.29.0"
   hashes = [
-    "h1:A8md2lwRA66GPil/DOr8O4YzoMxdcGNffHru+ovvO1I=",
-    "zh:0cb86e2df9e748f425e5d224ebb50098de7d23b329844c4e019fbd3a2422c3a5",
-    "zh:1541d671f879c391a19c5fb437f4b6bc79d295684d5cfc62f41d53d2c5e2676a",
-    "zh:168aff1c1dfeea3dbdf01886963261540fde9f6b33c91ff6603eda78501a7f0c",
-    "zh:3556188c98322aa94428ea85033a0b7389f0dc08af2899cc2068f44add916034",
-    "zh:3de56a7d85714ae851a42e59e86462a45f30468dcf28ca4da47c621d21925ac9",
-    "zh:4d5f8e5805540bba1fc71c26d35161a28f3117edcb35e9bf92ce84e605ef04ba",
-    "zh:7fd18cc3907d7fa8c54a1b0a20f6e425db64f173fbba0e535534176342d99776",
-    "zh:8231d242832b0a061e5485b210f59f8132d69c75435b510aa1a2b2b7067699d2",
-    "zh:981cd0fe411011149418a0fd6a9ff5e70f4b372e384dda4078d505ca535d89d2",
-    "zh:a0dfe901ff91c552e1d572044cae7b7edbed76291a47f728c7015d0d691dcfe5",
-    "zh:aa3cf95da72b474cdbc825d89f8601ed4a391ca10d57828a92f3977c0591e8b9",
-    "zh:cd424adfe421dc74df02cd4218c5a0eb99b15fe5d930a34a5f0ef699ce5267a0",
-    "zh:d3f01c46529e793561d8826c5b3fc56192a41343eaece84f268534353cc5f627",
+    "h1://OObPVHcpUMNY7uAdym2Q0WsczIsrwZEsMT7z4TbQE=",
+    "h1:4RXSGMmTQTNCahCeg7UN/+FUeZZ4XuXV3K4QIcx3rXQ=",
+    "h1:DCuK8TZDrnADUKDfIjFmqc5HCItxei3h2d8UdtQc2OI=",
+    "h1:FkB5i96+EktikRLffPg6Ev2MAA8YhpZ6Qgd52lBVTL4=",
+    "h1:Iu3MoLAki+kxWHr5cyNilg2KRV9Imtjb/t19rZfbMAw=",
+    "h1:KFi0TFp/enM57OUrK9dD+5PSha0Fw424ZE9sgeav2XQ=",
+    "h1:LTJjjRtJaUQEs7stnUsv0+fovj2B7wwv5zM0P7H1sr0=",
+    "h1:MKrCooEvD3l3NLymreJsTnZCRU3bYzPuJBpbTc6VyUU=",
+    "h1:Qxhoidbr8iEQc+jFtcXYbeCr6QnCHYk5DCRkxq/Suyc=",
+    "h1:k/TmwoCMx+eAAQKJmdsPztrASSnKiIkJTW8YvOiHFL4=",
+    "h1:mHvPbfAEGUtYH+63I11KzUVPJV5cCZ9YZ/1mb45fez8=",
+    "h1:s8jp+BqIRmXa0GNRB/UbJ9pKCD4tXXhqMgokhaddcDw=",
+    "h1:t+fgEgWPx64pGtGh1ihRu9rCb3eD2kKliH68lOwiUdA=",
+    "h1:wUTClojzCWWJENDqCzeeGYcv1VRNVFwkvEsx2vK55KQ=",
   ]
 }
