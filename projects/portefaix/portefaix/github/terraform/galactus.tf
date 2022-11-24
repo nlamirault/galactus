@@ -16,7 +16,7 @@
 
 resource "github_repository" "project" {
   name        = "portefaix"
-  description = "Kubernetes lab"
+  description = "Kubernetes components"
   #tfsec:ignore:GEN004
 
   has_issues             = true
