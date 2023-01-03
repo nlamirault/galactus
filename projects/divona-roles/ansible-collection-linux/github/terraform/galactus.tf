@@ -24,6 +24,21 @@ resource "github_repository" "project" {
   has_projects           = true
   allow_merge_commit     = true
   delete_branch_on_merge = true
+  vulnerability_alerts = true
+
+  security_and_analysis {
+          advanced_security {
+            status = "enabled"
+          }
+
+          secret_scanning {
+              status = "disabled"
+            }
+
+          secret_scanning_push_protection {
+              status = "disabled"
+            }
+        }
 
   # pages {
   #   source {
@@ -42,6 +57,13 @@ module "project_labels" {
   repository_name = github_repository.project.full_name
 }
 
+resource "github_issue_label" "area_github" {
+  repository  = github_repository.project.name
+  name        = "area/github"
+  description = "Github"
+  color       = "cc317c"
+}
+
 resource "github_issue_label" "area_ansible" {
   repository  = github_repository.project.name
   name        = "area/ansible"
@@ -54,6 +76,13 @@ resource "github_issue_label" "area_renovate" {
   name        = "area/renovate"
   description = "Renovate"
   color       = "cc317c"
+}
+
+resource "github_issue_label" "dependency_github" {
+  repository  = github_repository.project.name
+  name        = "dependency/github"
+  description = "Dependency Github"
+  color       = "6fcb70"
 }
 
 resource "github_issue_label" "dependency_ansible" {
