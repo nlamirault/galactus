@@ -47,14 +47,3 @@ plugin "google" {
     version = "0.22.1"
     source  = "github.com/terraform-linters/tflint-ruleset-google"
 }
-
-###############################################################################
-# PORTEFAIX
-
-plugin "portefaix" {
-  enabled = true
-}
-
-rule "terraform_portefaix_standard_structure" { enabled = true }
-rule "terraform_portefaix_standard_files" { enabled = true }
-rule "terraform_portefaix_tfenv" { enabled = true }

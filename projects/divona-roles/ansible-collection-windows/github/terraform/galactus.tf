@@ -24,21 +24,21 @@ resource "github_repository" "project" {
   has_projects           = true
   allow_merge_commit     = true
   delete_branch_on_merge = true
-  vulnerability_alerts = true
+  vulnerability_alerts   = true
 
   security_and_analysis {
-          advanced_security {
-            status = "enabled"
-          }
+    advanced_security {
+      status = "enabled"
+    }
 
-          secret_scanning {
-              status = "disabled"
-            }
+    secret_scanning {
+      status = "disabled"
+    }
 
-          secret_scanning_push_protection {
-              status = "disabled"
-            }
-        }
+    secret_scanning_push_protection {
+      status = "disabled"
+    }
+  }
 
   # pages {
   #   source {
@@ -89,5 +89,12 @@ resource "github_issue_label" "dependency_ansible" {
   repository  = github_repository.project.name
   name        = "dependency/ansible"
   description = "Dependency Ansible"
+  color       = "6fcb70"
+}
+
+resource "github_issue_label" "dependency_python" {
+  repository  = github_repository.project.name
+  name        = "dependency/python"
+  description = "Dependency Python"
   color       = "6fcb70"
 }
